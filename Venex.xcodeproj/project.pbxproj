@@ -12,6 +12,12 @@
 		59D524671F58599B00B5756A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 59D524651F58599B00B5756A /* Main.storyboard */; };
 		59D524691F58599B00B5756A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 59D524681F58599B00B5756A /* Assets.xcassets */; };
 		59D5246C1F58599B00B5756A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 59D5246A1F58599B00B5756A /* LaunchScreen.storyboard */; };
+		59D524741F585ACC00B5756A /* tree.png in Resources */ = {isa = PBXBuildFile; fileRef = 59D524731F585ACC00B5756A /* tree.png */; };
+		59D524771F58EEF600B5756A /* greenfield.png in Resources */ = {isa = PBXBuildFile; fileRef = 59D524761F58EEF600B5756A /* greenfield.png */; };
+		59D5247C1F59323800B5756A /* key_down.png in Resources */ = {isa = PBXBuildFile; fileRef = 59D524781F59323800B5756A /* key_down.png */; };
+		59D5247D1F59323800B5756A /* key_left.png in Resources */ = {isa = PBXBuildFile; fileRef = 59D524791F59323800B5756A /* key_left.png */; };
+		59D5247E1F59323800B5756A /* key_right.png in Resources */ = {isa = PBXBuildFile; fileRef = 59D5247A1F59323800B5756A /* key_right.png */; };
+		59D5247F1F59323800B5756A /* key_up.png in Resources */ = {isa = PBXBuildFile; fileRef = 59D5247B1F59323800B5756A /* key_up.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +28,12 @@
 		59D524681F58599B00B5756A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		59D5246B1F58599B00B5756A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		59D5246D1F58599B00B5756A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		59D524731F585ACC00B5756A /* tree.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tree.png; sourceTree = "<group>"; };
+		59D524761F58EEF600B5756A /* greenfield.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = greenfield.png; sourceTree = "<group>"; };
+		59D524781F59323800B5756A /* key_down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = key_down.png; sourceTree = "<group>"; };
+		59D524791F59323800B5756A /* key_left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = key_left.png; sourceTree = "<group>"; };
+		59D5247A1F59323800B5756A /* key_right.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = key_right.png; sourceTree = "<group>"; };
+		59D5247B1F59323800B5756A /* key_up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = key_up.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +66,7 @@
 		59D524601F58599B00B5756A /* Venex */ = {
 			isa = PBXGroup;
 			children = (
+				59D524751F585E1200B5756A /* png */,
 				59D524611F58599B00B5756A /* AppDelegate.swift */,
 				59D524631F58599B00B5756A /* ViewController.swift */,
 				59D524651F58599B00B5756A /* Main.storyboard */,
@@ -62,6 +75,19 @@
 				59D5246D1F58599B00B5756A /* Info.plist */,
 			);
 			path = Venex;
+			sourceTree = "<group>";
+		};
+		59D524751F585E1200B5756A /* png */ = {
+			isa = PBXGroup;
+			children = (
+				59D524781F59323800B5756A /* key_down.png */,
+				59D524791F59323800B5756A /* key_left.png */,
+				59D5247A1F59323800B5756A /* key_right.png */,
+				59D5247B1F59323800B5756A /* key_up.png */,
+				59D524761F58EEF600B5756A /* greenfield.png */,
+				59D524731F585ACC00B5756A /* tree.png */,
+			);
+			name = png;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -124,9 +150,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				59D5247F1F59323800B5756A /* key_up.png in Resources */,
 				59D5246C1F58599B00B5756A /* LaunchScreen.storyboard in Resources */,
 				59D524691F58599B00B5756A /* Assets.xcassets in Resources */,
+				59D5247D1F59323800B5756A /* key_left.png in Resources */,
 				59D524671F58599B00B5756A /* Main.storyboard in Resources */,
+				59D524741F585ACC00B5756A /* tree.png in Resources */,
+				59D524771F58EEF600B5756A /* greenfield.png in Resources */,
+				59D5247E1F59323800B5756A /* key_right.png in Resources */,
+				59D5247C1F59323800B5756A /* key_down.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -263,6 +295,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = X7TZM2569N;
 				INFOPLIST_FILE = Venex/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tadakazu1972.Venex;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -276,6 +309,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = X7TZM2569N;
 				INFOPLIST_FILE = Venex/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tadakazu1972.Venex;
 				PRODUCT_NAME = "$(TARGET_NAME)";
