@@ -18,6 +18,15 @@
 		59D5247D1F59323800B5756A /* key_left.png in Resources */ = {isa = PBXBuildFile; fileRef = 59D524791F59323800B5756A /* key_left.png */; };
 		59D5247E1F59323800B5756A /* key_right.png in Resources */ = {isa = PBXBuildFile; fileRef = 59D5247A1F59323800B5756A /* key_right.png */; };
 		59D5247F1F59323800B5756A /* key_up.png in Resources */ = {isa = PBXBuildFile; fileRef = 59D5247B1F59323800B5756A /* key_up.png */; };
+		59D524881F5A49AC00B5756A /* arthur01.png in Resources */ = {isa = PBXBuildFile; fileRef = 59D524801F5A49AC00B5756A /* arthur01.png */; };
+		59D524891F5A49AC00B5756A /* arthur02.png in Resources */ = {isa = PBXBuildFile; fileRef = 59D524811F5A49AC00B5756A /* arthur02.png */; };
+		59D5248A1F5A49AC00B5756A /* arthur03.png in Resources */ = {isa = PBXBuildFile; fileRef = 59D524821F5A49AC00B5756A /* arthur03.png */; };
+		59D5248B1F5A49AC00B5756A /* arthur04.png in Resources */ = {isa = PBXBuildFile; fileRef = 59D524831F5A49AC00B5756A /* arthur04.png */; };
+		59D5248C1F5A49AC00B5756A /* arthur05.png in Resources */ = {isa = PBXBuildFile; fileRef = 59D524841F5A49AC00B5756A /* arthur05.png */; };
+		59D5248D1F5A49AC00B5756A /* arthur06.png in Resources */ = {isa = PBXBuildFile; fileRef = 59D524851F5A49AC00B5756A /* arthur06.png */; };
+		59D5248E1F5A49AC00B5756A /* arthur07.png in Resources */ = {isa = PBXBuildFile; fileRef = 59D524861F5A49AC00B5756A /* arthur07.png */; };
+		59D5248F1F5A49AC00B5756A /* arthur08.png in Resources */ = {isa = PBXBuildFile; fileRef = 59D524871F5A49AC00B5756A /* arthur08.png */; };
+		59D524911F5A4FF800B5756A /* MyChara.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59D524901F5A4FF800B5756A /* MyChara.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +43,15 @@
 		59D524791F59323800B5756A /* key_left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = key_left.png; sourceTree = "<group>"; };
 		59D5247A1F59323800B5756A /* key_right.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = key_right.png; sourceTree = "<group>"; };
 		59D5247B1F59323800B5756A /* key_up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = key_up.png; sourceTree = "<group>"; };
+		59D524801F5A49AC00B5756A /* arthur01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arthur01.png; sourceTree = "<group>"; };
+		59D524811F5A49AC00B5756A /* arthur02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arthur02.png; sourceTree = "<group>"; };
+		59D524821F5A49AC00B5756A /* arthur03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arthur03.png; sourceTree = "<group>"; };
+		59D524831F5A49AC00B5756A /* arthur04.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arthur04.png; sourceTree = "<group>"; };
+		59D524841F5A49AC00B5756A /* arthur05.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arthur05.png; sourceTree = "<group>"; };
+		59D524851F5A49AC00B5756A /* arthur06.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arthur06.png; sourceTree = "<group>"; };
+		59D524861F5A49AC00B5756A /* arthur07.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arthur07.png; sourceTree = "<group>"; };
+		59D524871F5A49AC00B5756A /* arthur08.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arthur08.png; sourceTree = "<group>"; };
+		59D524901F5A4FF800B5756A /* MyChara.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyChara.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +87,7 @@
 				59D524751F585E1200B5756A /* png */,
 				59D524611F58599B00B5756A /* AppDelegate.swift */,
 				59D524631F58599B00B5756A /* ViewController.swift */,
+				59D524901F5A4FF800B5756A /* MyChara.swift */,
 				59D524651F58599B00B5756A /* Main.storyboard */,
 				59D524681F58599B00B5756A /* Assets.xcassets */,
 				59D5246A1F58599B00B5756A /* LaunchScreen.storyboard */,
@@ -80,6 +99,14 @@
 		59D524751F585E1200B5756A /* png */ = {
 			isa = PBXGroup;
 			children = (
+				59D524801F5A49AC00B5756A /* arthur01.png */,
+				59D524811F5A49AC00B5756A /* arthur02.png */,
+				59D524821F5A49AC00B5756A /* arthur03.png */,
+				59D524831F5A49AC00B5756A /* arthur04.png */,
+				59D524841F5A49AC00B5756A /* arthur05.png */,
+				59D524851F5A49AC00B5756A /* arthur06.png */,
+				59D524861F5A49AC00B5756A /* arthur07.png */,
+				59D524871F5A49AC00B5756A /* arthur08.png */,
 				59D524781F59323800B5756A /* key_down.png */,
 				59D524791F59323800B5756A /* key_left.png */,
 				59D5247A1F59323800B5756A /* key_right.png */,
@@ -156,8 +183,16 @@
 				59D5247D1F59323800B5756A /* key_left.png in Resources */,
 				59D524671F58599B00B5756A /* Main.storyboard in Resources */,
 				59D524741F585ACC00B5756A /* tree.png in Resources */,
+				59D5248C1F5A49AC00B5756A /* arthur05.png in Resources */,
+				59D524891F5A49AC00B5756A /* arthur02.png in Resources */,
+				59D5248D1F5A49AC00B5756A /* arthur06.png in Resources */,
+				59D5248B1F5A49AC00B5756A /* arthur04.png in Resources */,
 				59D524771F58EEF600B5756A /* greenfield.png in Resources */,
+				59D5248A1F5A49AC00B5756A /* arthur03.png in Resources */,
+				59D5248F1F5A49AC00B5756A /* arthur08.png in Resources */,
+				59D5248E1F5A49AC00B5756A /* arthur07.png in Resources */,
 				59D5247E1F59323800B5756A /* key_right.png in Resources */,
+				59D524881F5A49AC00B5756A /* arthur01.png in Resources */,
 				59D5247C1F59323800B5756A /* key_down.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -170,6 +205,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				59D524641F58599B00B5756A /* ViewController.swift in Sources */,
+				59D524911F5A4FF800B5756A /* MyChara.swift in Sources */,
 				59D524621F58599B00B5756A /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -336,6 +372,7 @@
 				59D524721F58599B00B5756A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -20,11 +20,28 @@ class ViewController: UIViewController {
     let image0: UIImage = UIImage(named: "greenfield.png")!
     let image1: UIImage = UIImage(named: "tree.png")!
     var imageArray: Array<UIImage> = []
+    //MyChara
+    let arthur01: UIImage = UIImage(named: "arthur01.png")!
+    let arthur02: UIImage = UIImage(named: "arthur02.png")!
+    let arthur03: UIImage = UIImage(named: "arthur03.png")!
+    let arthur04: UIImage = UIImage(named: "arthur04.png")!
+    let arthur05: UIImage = UIImage(named: "arthur05.png")!
+    let arthur06: UIImage = UIImage(named: "arthur06.png")!
+    let arthur07: UIImage = UIImage(named: "arthur07.png")!
+    let arthur08: UIImage = UIImage(named: "arthur08.png")!
+    var imageMyChara: Array<UIImage> = []
+    var sMyChara: UIImageView = UIImageView()
     //ボタン類
     let btnUp    = UIButton(frame: CGRect.zero)
     let btnRight = UIButton(frame: CGRect.zero)
     let btnDown  = UIButton(frame: CGRect.zero)
     let btnLeft  = UIButton(frame: CGRect.zero)
+    
+    //クラス保持
+    internal var mMyChara: MyChara!
+    
+    //タイマー
+    var timer: Timer!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,10 +52,26 @@ class ViewController: UIViewController {
         initScreen()
         //ボタン初期化
         initButtons()
+        
+        //クラス生成
+        mMyChara = MyChara()
+        
         //画像配列追加
         initImage()
-        //マップ描画
-        drawMap()
+        //親ViewにImageViewを追加
+        initImageView()
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool){
+        super.viewWillAppear(true)
+        timer = Timer.scheduledTimer(timeInterval: 0.014, target: self, selector: #selector(self.update), userInfo: nil, repeats: true)
+        timer.fire()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool){
+        super.viewWillDisappear(true)
+        timer.invalidate()
     }
     
     //制約ひな型
@@ -99,7 +132,7 @@ class ViewController: UIViewController {
         btnUp.setTitleColor(UIColor.black, for: UIControlState())
         btnUp.setTitleColor(UIColor.red, for: UIControlState.highlighted)
         btnUp.translatesAutoresizingMaskIntoConstraints = false
-        btnUp.addTarget(self, action: #selector(self.clickUp(_:)), for: .touchUpInside)
+        btnUp.addTarget(self, action: #selector(self.touchUp(_:)), for: .touchUpInside)
         self.view.addSubview(btnUp)
         //Right
         btnRight.backgroundColor = UIColor(red:0.85, green:0.85, blue:0.85, alpha:1.0)
@@ -110,7 +143,7 @@ class ViewController: UIViewController {
         btnRight.setTitleColor(UIColor.black, for: UIControlState())
         btnRight.setTitleColor(UIColor.red, for: UIControlState.highlighted)
         btnRight.translatesAutoresizingMaskIntoConstraints = false
-        btnRight.addTarget(self, action: #selector(self.clickUp(_:)), for: .touchUpInside)
+        btnRight.addTarget(self, action: #selector(self.touchRight(_:)), for: .touchUpInside)
         self.view.addSubview(btnRight)
         //Down
         btnDown.backgroundColor = UIColor(red:0.85, green:0.85, blue:0.85, alpha:1.0)
@@ -121,7 +154,7 @@ class ViewController: UIViewController {
         btnDown.setTitleColor(UIColor.black, for: UIControlState())
         btnDown.setTitleColor(UIColor.red, for: UIControlState.highlighted)
         btnDown.translatesAutoresizingMaskIntoConstraints = false
-        btnDown.addTarget(self, action: #selector(self.clickUp(_:)), for: .touchUpInside)
+        btnDown.addTarget(self, action: #selector(self.touchDown(_:)), for: .touchUpInside)
         self.view.addSubview(btnDown)
         //Left
         btnLeft.backgroundColor = UIColor(red:0.85, green:0.85, blue:0.85, alpha:1.0)
@@ -132,14 +165,23 @@ class ViewController: UIViewController {
         btnLeft.setTitleColor(UIColor.black, for: UIControlState())
         btnLeft.setTitleColor(UIColor.red, for: UIControlState.highlighted)
         btnLeft.translatesAutoresizingMaskIntoConstraints = false
-        btnLeft.addTarget(self, action: #selector(self.clickUp(_:)), for: .touchUpInside)
+        btnLeft.addTarget(self, action: #selector(self.touchLeft(_:)), for: .touchUpInside)
         self.view.addSubview(btnLeft)
     }
     
     //ボタン押下
-    //Up
-    func clickUp(_ sender: UIButton){
+    func touchUp(_ sender: UIButton){
+        mMyChara.up()
         
+    }
+    func touchRight(_ sender: UIButton){
+        mMyChara.right()
+    }
+    func touchDown(_ sender: UIButton){
+        mMyChara.down()
+    }
+    func touchLeft(_ sender: UIButton){
+        mMyChara.left()
     }
     
     //画面初期化
@@ -156,10 +198,48 @@ class ViewController: UIViewController {
     
     //画像セット
     func initImage(){
+        //Map
         imageArray.append(image0)
         imageArray.append(image1)
+        //MyChara
+        imageMyChara.append(arthur07)
+        imageMyChara.append(arthur08)
+        imageMyChara.append(arthur03)
+        imageMyChara.append(arthur04)
+        imageMyChara.append(arthur01)
+        imageMyChara.append(arthur02)
+        imageMyChara.append(arthur05)
+        imageMyChara.append(arthur06)
     }
 
+    //ViewにImageViewを追加
+    func initImageView(){
+        //Map
+        for y in 0..<10 {
+            for x in 0..<10 {
+                
+                let imageView: UIImageView = UIImageView()
+                imageView.image = imageArray[1]
+                imageView.frame = CGRect(x: CGFloat(x)*32*scale, y: CGFloat(y)*32*scale+statusBarHeight, width: scaledSize, height: scaledSize)
+                imageView.tag = y*10 + x + 1
+                
+                self.view.addSubview(imageView)
+            }
+        }
+        //MyChara
+        sMyChara.image = imageMyChara[mMyChara.base_index]
+        sMyChara.frame = CGRect(x: mMyChara.x*scale, y: mMyChara.y*scale+statusBarHeight, width:scaledSize, height: scaledSize)
+        self.view.addSubview(sMyChara)
+    }
+    
+    //タイマー更新
+    func update(tm: Timer){
+        //移動処理
+        mMyChara.move()
+        //描画処理
+        drawMyChara()
+    }
+    
     //マップ描画
     func drawMap(){
         //画像を10ｘ10並べる
@@ -174,6 +254,14 @@ class ViewController: UIViewController {
                 self.view.addSubview(imageView)
             }
         }
+    }
+    
+    //MyChara描画
+    func drawMyChara(){
+        var i = mMyChara.base_index + mMyChara.index / 10
+        if ( i > 7 ) { i = 0 }
+        sMyChara.image = imageMyChara[i]
+        sMyChara.frame = CGRect(x: mMyChara.x*scale, y: mMyChara.y*scale+statusBarHeight, width:scaledSize, height: scaledSize)
     }
     
     //Xcode自動生成コード
