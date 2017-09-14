@@ -16,11 +16,12 @@ class ViewController: UIViewController {
     var statusBarHeight: CGFloat = 20.0
     var scale: CGFloat = 1.0
     var scaledSize: CGFloat = 1.0
-    //画像関係
+    //Map画像
     let image0: UIImage = UIImage(named: "greenfield.png")!
     let image1: UIImage = UIImage(named: "tree.png")!
-    var imageArray: Array<UIImage> = []
-    //MyChara
+    var imageMap: Array<UIImage> = []
+    var sMap: Array<UIImageView> = [] //あとでfor文の中で100の配列初期化
+    //MyChara画像
     let arthur01: UIImage = UIImage(named: "arthur01.png")!
     let arthur02: UIImage = UIImage(named: "arthur02.png")!
     let arthur03: UIImage = UIImage(named: "arthur03.png")!
@@ -37,8 +38,9 @@ class ViewController: UIViewController {
     let btnDown  = UIButton(frame: CGRect.zero)
     let btnLeft  = UIButton(frame: CGRect.zero)
     
-    //クラス保持
+    //クラス
     internal var mMyChara: MyChara!
+    internal var mMap: Array<Map> = []
     
     //タイマー
     var timer: Timer!
@@ -55,6 +57,7 @@ class ViewController: UIViewController {
         
         //クラス生成
         mMyChara = MyChara()
+        initMap()
         
         //画像配列追加
         initImage()
@@ -172,7 +175,6 @@ class ViewController: UIViewController {
     //ボタン押下
     func touchUp(_ sender: UIButton){
         mMyChara.up()
-        
     }
     func touchRight(_ sender: UIButton){
         mMyChara.right()
@@ -199,8 +201,8 @@ class ViewController: UIViewController {
     //画像セット
     func initImage(){
         //Map
-        imageArray.append(image0)
-        imageArray.append(image1)
+        imageMap.append(image0)
+        imageMap.append(image1)
         //MyChara
         imageMyChara.append(arthur07)
         imageMyChara.append(arthur08)
@@ -211,19 +213,25 @@ class ViewController: UIViewController {
         imageMyChara.append(arthur05)
         imageMyChara.append(arthur06)
     }
+    
+    //マップデータ初期化、読み込み
+    func initMap(){
+        let tempMap: Map = Map(_index: 0)
+        mMap.append(tempMap)
+        mMap[0].loadCSV(_filename: "map1")
+    }
 
     //ViewにImageViewを追加
     func initImageView(){
         //Map
         for y in 0..<10 {
             for x in 0..<10 {
-                
-                let imageView: UIImageView = UIImageView()
-                imageView.image = imageArray[1]
-                imageView.frame = CGRect(x: CGFloat(x)*32*scale, y: CGFloat(y)*32*scale+statusBarHeight, width: scaledSize, height: scaledSize)
-                imageView.tag = y*10 + x + 1
-                
-                self.view.addSubview(imageView)
+                sMap.append(UIImageView())
+                let index: Int = mMap[0].data[y][x]
+                let i: Int = y*10 + x
+                sMap[i].image = imageMap[index]
+                sMap[i].frame = CGRect(x: CGFloat(x)*32*scale, y: CGFloat(y)*32*scale+statusBarHeight, width: scaledSize, height: scaledSize)
+                self.view.addSubview(sMap[i])
             }
         }
         //MyChara
@@ -245,13 +253,9 @@ class ViewController: UIViewController {
         //画像を10ｘ10並べる
         for y in 0..<10 {
             for x in 0..<10 {
-                
-                let imageView: UIImageView = UIImageView()
-                imageView.image = imageArray[1]
-                imageView.frame = CGRect(x: CGFloat(x)*32*scale, y: CGFloat(y)*32*scale+statusBarHeight, width: scaledSize, height: scaledSize)
-                imageView.tag = y*10 + x + 1
-                
-                self.view.addSubview(imageView)
+                let i = y*10 + x
+                sMap[i].image = imageMap[1]
+                sMap[i].frame = CGRect(x: CGFloat(x)*32*scale, y: CGFloat(y)*32*scale+statusBarHeight, width: scaledSize, height: scaledSize)
             }
         }
     }
