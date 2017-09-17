@@ -21,6 +21,7 @@ class ViewController: UIViewController {
     let image1: UIImage = UIImage(named: "tree.png")!
     var imageMap: Array<UIImage> = []
     var sMap: Array<UIImageView> = [] //あとでfor文の中で100の配列初期化
+    var currentMap: Int = 0 //画面に表示中のマップIndex
     //MyChara画像
     let arthur01: UIImage = UIImage(named: "arthur01.png")!
     let arthur02: UIImage = UIImage(named: "arthur02.png")!
@@ -37,6 +38,7 @@ class ViewController: UIViewController {
     let btnRight = UIButton(frame: CGRect.zero)
     let btnDown  = UIButton(frame: CGRect.zero)
     let btnLeft  = UIButton(frame: CGRect.zero)
+    var longPressFlag: Bool = false //ロングプレス判定用
     
     //クラス
     internal var mMyChara: MyChara!
@@ -56,7 +58,7 @@ class ViewController: UIViewController {
         initButtons()
         
         //クラス生成
-        mMyChara = MyChara()
+        mMyChara = MyChara(parent: self)
         initMap()
         
         //画像配列追加
@@ -126,6 +128,10 @@ class ViewController: UIViewController {
     
     //ボタン初期化
     func initButtons(){
+        //ロングプレス定義
+        let longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(self.longPress(_:)))
+        longPressGesture.minimumPressDuration = 1.0 //２秒以上でロングプレス
+        
         //Up
         btnUp.backgroundColor = UIColor(red:0.85, green:0.85, blue:0.85, alpha:1.0)
         btnUp.layer.masksToBounds = true
@@ -135,7 +141,9 @@ class ViewController: UIViewController {
         btnUp.setTitleColor(UIColor.black, for: UIControlState())
         btnUp.setTitleColor(UIColor.red, for: UIControlState.highlighted)
         btnUp.translatesAutoresizingMaskIntoConstraints = false
-        btnUp.addTarget(self, action: #selector(self.touchUp(_:)), for: .touchUpInside)
+        btnUp.addTarget(self, action: #selector(self.touchUp(_:)), for: .touchDown)
+        btnUp.addTarget(self, action: #selector(self.touchUpRepeat(_:)), for: .touchDownRepeat)
+        btnUp.addGestureRecognizer(longPressGesture)
         self.view.addSubview(btnUp)
         //Right
         btnRight.backgroundColor = UIColor(red:0.85, green:0.85, blue:0.85, alpha:1.0)
@@ -146,7 +154,9 @@ class ViewController: UIViewController {
         btnRight.setTitleColor(UIColor.black, for: UIControlState())
         btnRight.setTitleColor(UIColor.red, for: UIControlState.highlighted)
         btnRight.translatesAutoresizingMaskIntoConstraints = false
-        btnRight.addTarget(self, action: #selector(self.touchRight(_:)), for: .touchUpInside)
+        btnRight.addTarget(self, action: #selector(self.touchRight(_:)), for: .touchDown)
+        btnRight.addTarget(self, action: #selector(self.touchRightRepeat(_:)), for: .touchDownRepeat)
+        btnRight.addGestureRecognizer(longPressGesture)
         self.view.addSubview(btnRight)
         //Down
         btnDown.backgroundColor = UIColor(red:0.85, green:0.85, blue:0.85, alpha:1.0)
@@ -157,7 +167,9 @@ class ViewController: UIViewController {
         btnDown.setTitleColor(UIColor.black, for: UIControlState())
         btnDown.setTitleColor(UIColor.red, for: UIControlState.highlighted)
         btnDown.translatesAutoresizingMaskIntoConstraints = false
-        btnDown.addTarget(self, action: #selector(self.touchDown(_:)), for: .touchUpInside)
+        btnDown.addTarget(self, action: #selector(self.touchDown(_:)), for: .touchDown)
+        btnDown.addTarget(self, action: #selector(self.touchDownRepeat(_:)), for: .touchDownRepeat)
+        btnDown.addGestureRecognizer(longPressGesture)
         self.view.addSubview(btnDown)
         //Left
         btnLeft.backgroundColor = UIColor(red:0.85, green:0.85, blue:0.85, alpha:1.0)
@@ -168,22 +180,57 @@ class ViewController: UIViewController {
         btnLeft.setTitleColor(UIColor.black, for: UIControlState())
         btnLeft.setTitleColor(UIColor.red, for: UIControlState.highlighted)
         btnLeft.translatesAutoresizingMaskIntoConstraints = false
-        btnLeft.addTarget(self, action: #selector(self.touchLeft(_:)), for: .touchUpInside)
+        btnLeft.addTarget(self, action: #selector(self.touchLeft(_:)), for: .touchDown)
+        btnLeft.addTarget(self, action: #selector(self.touchLeftRepeat(_:)), for: .touchDownRepeat)
+        btnLeft.addGestureRecognizer(longPressGesture)
         self.view.addSubview(btnLeft)
+    }
+    
+    //ロングプレス
+    func longPress(_ sender: UILongPressGestureRecognizer){
+        longPressFlag = true
+        print("長押し")
+        //指が離れた検知
+        if (sender.state == UIGestureRecognizerState.ended){
+            longPressFlag = false
+            print("長押し終了")
+        }
     }
     
     //ボタン押下
     func touchUp(_ sender: UIButton){
-        mMyChara.up()
+        mMyChara.up(speed: 1.0)
     }
     func touchRight(_ sender: UIButton){
-        mMyChara.right()
+        mMyChara.right(speed: 1.0)
     }
     func touchDown(_ sender: UIButton){
-        mMyChara.down()
+        mMyChara.down(speed: 1.0)
     }
     func touchLeft(_ sender: UIButton){
-        mMyChara.left()
+        mMyChara.left(speed: 1.0)
+    }
+    
+    //ボタン押しっぱなし
+    func touchUpRepeat(_ sender: UIButton){
+        mMyChara.up(speed: 3.0)
+    }
+    func touchRightRepeat(_ sender: UIButton){
+        mMyChara.right(speed: 3.0)
+    }
+    func touchDownRepeat(_ sender: UIButton){
+        mMyChara.down(speed: 3.0)
+    }
+    func touchLeftRepeat(_ sender: UIButton){
+        mMyChara.left(speed: 3.0)
+    }
+    
+    //タイマー更新
+    func update(tm: Timer){
+        //移動処理
+        mMyChara.move()
+        //描画処理
+        drawMyChara()
     }
     
     //画面初期化
@@ -216,9 +263,22 @@ class ViewController: UIViewController {
     
     //マップデータ初期化、読み込み
     func initMap(){
-        let tempMap: Map = Map(_index: 0)
-        mMap.append(tempMap)
-        mMap[0].loadCSV(_filename: "map1")
+        for i in 0..<7 {
+            //Mapクラスを生成してmMap配列に追加
+            let tempMap: Map = Map(_index: i)
+            mMap.append(tempMap)
+            //ファイル名を生成してcsvファイル読み込み
+            let filename: String = "map" + String(i)
+            mMap[i].loadCSV(_filename: filename)
+        }
+        //次に表示するマップデータ読み込み
+        mMap[0].setNext(up: 0,right: 0,down: 1,left: 0)
+        mMap[1].setNext(up: 0,right: 2,down: 0,left: 0)
+        mMap[2].setNext(up: 0,right: 3,down: 0,left: 1)
+        mMap[3].setNext(up: 0,right: 4,down: 0,left: 2)
+        mMap[4].setNext(up: 0,right: 0,down: 5,left: 3)
+        mMap[5].setNext(up: 4,right: 0,down: 6,left: 0)
+        mMap[6].setNext(up: 5,right: 0,down: 0,left: 0)
     }
 
     //ViewにImageViewを追加
@@ -227,9 +287,9 @@ class ViewController: UIViewController {
         for y in 0..<10 {
             for x in 0..<10 {
                 sMap.append(UIImageView())
-                let index: Int = mMap[0].data[y][x]
+                let mapId: Int = mMap[currentMap].data[y][x]
                 let i: Int = y*10 + x
-                sMap[i].image = imageMap[index]
+                sMap[i].image = imageMap[mapId]
                 sMap[i].frame = CGRect(x: CGFloat(x)*32*scale, y: CGFloat(y)*32*scale+statusBarHeight, width: scaledSize, height: scaledSize)
                 self.view.addSubview(sMap[i])
             }
@@ -240,21 +300,14 @@ class ViewController: UIViewController {
         self.view.addSubview(sMyChara)
     }
     
-    //タイマー更新
-    func update(tm: Timer){
-        //移動処理
-        mMyChara.move()
-        //描画処理
-        drawMyChara()
-    }
-    
     //マップ描画
     func drawMap(){
         //画像を10ｘ10並べる
         for y in 0..<10 {
             for x in 0..<10 {
-                let i = y*10 + x
-                sMap[i].image = imageMap[1]
+                let mapId: Int = mMap[currentMap].data[y][x]
+                let i: Int = y*10 + x
+                sMap[i].image = imageMap[mapId]
                 sMap[i].frame = CGRect(x: CGFloat(x)*32*scale, y: CGFloat(y)*32*scale+statusBarHeight, width: scaledSize, height: scaledSize)
             }
         }

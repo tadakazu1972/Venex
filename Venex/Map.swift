@@ -43,4 +43,12 @@ class Map {
             //text1.text = "csvファイル読み込みエラー"
         }
     }
+    
+    //画面端に行くと次のマップを呼び出すための格納庫
+    func setNext(up: Int, right: Int, down: Int, left: Int){
+        next[0] = up
+        next[1] = right
+        next[2] = down
+        next[3] = left        
+    }
 }
