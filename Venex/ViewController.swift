@@ -38,17 +38,35 @@ class ViewController: UIViewController {
     let btnRight = UIButton(frame: CGRect.zero)
     let btnDown  = UIButton(frame: CGRect.zero)
     let btnLeft  = UIButton(frame: CGRect.zero)
+    let btnItem  = UIButton(frame: CGRect.zero)
     var longPressFlag: Bool = false //ロングプレス判定用
-    
     //クラス
-    internal var mMyChara: MyChara!
-    internal var mMap: Array<Map> = []
-    
+    var mMyChara: MyChara!
+    var mMap: Array<Map> = []
+    var mDBHelper: DBHelper!
+    var mDialogItem: DialogItem!
     //タイマー
     var timer: Timer!
+    //UserDefaults
+    let userDefaults = UserDefaults.standard
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //DB生成
+        mDBHelper = DBHelper()
+        mDBHelper.createTable()
+        
+        //初回起動判定
+        if userDefaults.bool(forKey:"firstLaunch"){
+            //アイテム初期化
+            mDBHelper.insert("薬草", num:10)
+            mDBHelper.insert("鉄鉱石", num:3)
+            mDBHelper.insert("木ノ実", num:20)
+            
+            //2回目以降ではfalse
+            userDefaults.set(false, forKey:"firstLaunch")
+        }
         
         //背景色
         self.view.backgroundColor = UIColor(red:0.3, green:0.3, blue:0.6, alpha:1.0)
@@ -95,34 +113,40 @@ class ViewController: UIViewController {
     }
     
     override func viewDidLayoutSubviews(){
-        //制約
+        //Upボタン
         self.view.addConstraints([
-            //Upボタン
             Constraint(btnUp, .top, to:self.view, .centerY, constant:104),
             Constraint(btnUp, .leading, to:self.view, .leading, constant:64*scale),
             Constraint(btnUp, .width, to:self.view, .width, constant:0, multiplier:0.15),
             Constraint(btnUp, .height, to:self.view, .height, constant:0, multiplier:0.08)
         ])
+        //Rightボタン
         self.view.addConstraints([
-            //Rightボタン
             Constraint(btnRight, .top, to:btnUp, .bottom, constant:8*scale),
             Constraint(btnRight, .leading, to:btnUp, .trailing, constant:0),
             Constraint(btnRight, .width, to:self.view, .width, constant:0, multiplier:0.15),
             Constraint(btnRight, .height, to:btnUp, .height, constant:0)
         ])
+        //Downボタン
         self.view.addConstraints([
-            //Downボタン
             Constraint(btnDown, .top, to:btnRight, .bottom, constant:8*scale),
             Constraint(btnDown, .leading, to:btnUp, .leading, constant:0),
             Constraint(btnDown, .width, to:self.view, .width, constant:0, multiplier:0.15),
             Constraint(btnDown, .height, to:btnUp, .height, constant:0)
         ])
+        //Leftボタン
         self.view.addConstraints([
-            //Leftボタン
             Constraint(btnLeft, .top, to:btnUp, .bottom, constant:8*scale),
             Constraint(btnLeft, .trailing, to:btnUp, .leading, constant:0),
             Constraint(btnLeft, .width, to:self.view, .width, constant:0, multiplier:0.15),
             Constraint(btnLeft, .height, to:btnUp, .height, constant:0)
+        ])
+        //Itemボタン
+        self.view.addConstraints([
+            Constraint(btnItem, .top, to:self.view, .centerY, constant:104),
+            Constraint(btnItem, .trailing, to:self.view, .trailing, constant:-16),
+            Constraint(btnItem, .width, to:self.view, .width, constant:0, multiplier:0.3),
+            Constraint(btnItem, .height, to:self.view, .height, constant:0, multiplier:0.08)
         ])
     }
     
@@ -184,6 +208,17 @@ class ViewController: UIViewController {
         btnLeft.addTarget(self, action: #selector(self.touchLeftRepeat(_:)), for: .touchDownRepeat)
         btnLeft.addGestureRecognizer(longPressGesture)
         self.view.addSubview(btnLeft)
+        
+        //アイテム
+        btnItem.backgroundColor = UIColor(red:0.85, green:0.85, blue:0.85, alpha:1.0)
+        btnItem.layer.masksToBounds = true
+        btnItem.setTitle("アイテム", for: UIControlState())
+        btnItem.setTitleColor(UIColor.black, for: UIControlState())
+        btnItem.setTitleColor(UIColor.red, for: UIControlState.highlighted)
+        btnItem.layer.cornerRadius = 8.0
+        btnItem.addTarget(self, action: #selector(self.touchBtnItem(_:)), for: .touchUpInside)
+        btnItem.translatesAutoresizingMaskIntoConstraints = false
+        self.view.addSubview(btnItem)
     }
     
     //ロングプレス
@@ -223,6 +258,12 @@ class ViewController: UIViewController {
     }
     func touchLeftRepeat(_ sender: UIButton){
         mMyChara.left(speed: 3.0)
+    }
+    
+    func touchBtnItem(_ sender: UIButton){
+        mDBHelper.selectAll()
+        mDialogItem = DialogItem(parentView: self, resultFrom: mDBHelper.resultArray)
+        mDialogItem.showItems()
     }
     
     //タイマー更新

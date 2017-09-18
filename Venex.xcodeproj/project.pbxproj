@@ -14,6 +14,19 @@
 		59CD22971F6E096600F9CF65 /* map6.csv in Resources */ = {isa = PBXBuildFile; fileRef = 59CD22921F6E096600F9CF65 /* map6.csv */; };
 		59CD22991F6E162400F9CF65 /* map0.csv in Resources */ = {isa = PBXBuildFile; fileRef = 59CD22981F6E162400F9CF65 /* map0.csv */; };
 		59CD229B1F6E427100F9CF65 /* map1.csv in Resources */ = {isa = PBXBuildFile; fileRef = 59CD229A1F6E427100F9CF65 /* map1.csv */; };
+		59CD22A91F6EAA0800F9CF65 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 59CD229E1F6EAA0800F9CF65 /* FMDatabase.m */; };
+		59CD22AA1F6EAA0800F9CF65 /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 59CD22A01F6EAA0800F9CF65 /* FMDatabaseAdditions.m */; };
+		59CD22AB1F6EAA0800F9CF65 /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = 59CD22A21F6EAA0800F9CF65 /* FMDatabasePool.m */; };
+		59CD22AC1F6EAA0800F9CF65 /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 59CD22A41F6EAA0800F9CF65 /* FMDatabaseQueue.m */; };
+		59CD22AD1F6EAA0800F9CF65 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 59CD22A71F6EAA0800F9CF65 /* FMResultSet.m */; };
+		59CD22AE1F6EAA0800F9CF65 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 59CD22A81F6EAA0800F9CF65 /* Info.plist */; };
+		59CD22B11F6EB23400F9CF65 /* DBHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59CD22B01F6EB23400F9CF65 /* DBHelper.swift */; };
+		59CD22B31F6F693400F9CF65 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59CD22B21F6F693400F9CF65 /* StringExtensions.swift */; };
+		59CD22B61F6FB4B400F9CF65 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 59CD22B51F6FB4B400F9CF65 /* libsqlite3.tbd */; };
+		59CD22B81F6FE61100F9CF65 /* DialogItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59CD22B71F6FE61100F9CF65 /* DialogItem.swift */; };
+		59CD22BC1F6FF30D00F9CF65 /* CheckboxItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59CD22BB1F6FF30D00F9CF65 /* CheckboxItemCell.swift */; };
+		59CD22BE1F6FF3E300F9CF65 /* ic_check_box_outline_blank.png in Resources */ = {isa = PBXBuildFile; fileRef = 59CD22BD1F6FF3E300F9CF65 /* ic_check_box_outline_blank.png */; };
+		59CD22C01F6FF3F200F9CF65 /* ic_check_box.png in Resources */ = {isa = PBXBuildFile; fileRef = 59CD22BF1F6FF3F200F9CF65 /* ic_check_box.png */; };
 		59D524621F58599B00B5756A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59D524611F58599B00B5756A /* AppDelegate.swift */; };
 		59D524641F58599B00B5756A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59D524631F58599B00B5756A /* ViewController.swift */; };
 		59D524671F58599B00B5756A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 59D524651F58599B00B5756A /* Main.storyboard */; };
@@ -45,6 +58,26 @@
 		59CD22921F6E096600F9CF65 /* map6.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = map6.csv; sourceTree = "<group>"; };
 		59CD22981F6E162400F9CF65 /* map0.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = map0.csv; sourceTree = "<group>"; };
 		59CD229A1F6E427100F9CF65 /* map1.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = map1.csv; sourceTree = "<group>"; };
+		59CD229D1F6EAA0800F9CF65 /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
+		59CD229E1F6EAA0800F9CF65 /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabase.m; sourceTree = "<group>"; };
+		59CD229F1F6EAA0800F9CF65 /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseAdditions.h; sourceTree = "<group>"; };
+		59CD22A01F6EAA0800F9CF65 /* FMDatabaseAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseAdditions.m; sourceTree = "<group>"; };
+		59CD22A11F6EAA0800F9CF65 /* FMDatabasePool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabasePool.h; sourceTree = "<group>"; };
+		59CD22A21F6EAA0800F9CF65 /* FMDatabasePool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabasePool.m; sourceTree = "<group>"; };
+		59CD22A31F6EAA0800F9CF65 /* FMDatabaseQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseQueue.h; sourceTree = "<group>"; };
+		59CD22A41F6EAA0800F9CF65 /* FMDatabaseQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseQueue.m; sourceTree = "<group>"; };
+		59CD22A51F6EAA0800F9CF65 /* FMDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDB.h; sourceTree = "<group>"; };
+		59CD22A61F6EAA0800F9CF65 /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
+		59CD22A71F6EAA0800F9CF65 /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
+		59CD22A81F6EAA0800F9CF65 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		59CD22AF1F6EACCC00F9CF65 /* Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
+		59CD22B01F6EB23400F9CF65 /* DBHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBHelper.swift; sourceTree = "<group>"; };
+		59CD22B21F6F693400F9CF65 /* StringExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
+		59CD22B51F6FB4B400F9CF65 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		59CD22B71F6FE61100F9CF65 /* DialogItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DialogItem.swift; sourceTree = "<group>"; };
+		59CD22BB1F6FF30D00F9CF65 /* CheckboxItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckboxItemCell.swift; sourceTree = "<group>"; };
+		59CD22BD1F6FF3E300F9CF65 /* ic_check_box_outline_blank.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_check_box_outline_blank.png; sourceTree = "<group>"; };
+		59CD22BF1F6FF3F200F9CF65 /* ic_check_box.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_check_box.png; sourceTree = "<group>"; };
 		59D5245E1F58599B00B5756A /* Venex.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Venex.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		59D524611F58599B00B5756A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		59D524631F58599B00B5756A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -75,6 +108,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				59CD22B61F6FB4B400F9CF65 /* libsqlite3.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -95,11 +129,40 @@
 			name = assets;
 			sourceTree = "<group>";
 		};
+		59CD229C1F6EAA0800F9CF65 /* fmdb */ = {
+			isa = PBXGroup;
+			children = (
+				59CD229D1F6EAA0800F9CF65 /* FMDatabase.h */,
+				59CD229E1F6EAA0800F9CF65 /* FMDatabase.m */,
+				59CD229F1F6EAA0800F9CF65 /* FMDatabaseAdditions.h */,
+				59CD22A01F6EAA0800F9CF65 /* FMDatabaseAdditions.m */,
+				59CD22A11F6EAA0800F9CF65 /* FMDatabasePool.h */,
+				59CD22A21F6EAA0800F9CF65 /* FMDatabasePool.m */,
+				59CD22A31F6EAA0800F9CF65 /* FMDatabaseQueue.h */,
+				59CD22A41F6EAA0800F9CF65 /* FMDatabaseQueue.m */,
+				59CD22A51F6EAA0800F9CF65 /* FMDB.h */,
+				59CD22A61F6EAA0800F9CF65 /* FMResultSet.h */,
+				59CD22A71F6EAA0800F9CF65 /* FMResultSet.m */,
+				59CD22A81F6EAA0800F9CF65 /* Info.plist */,
+			);
+			name = fmdb;
+			path = ../fmdb;
+			sourceTree = "<group>";
+		};
+		59CD22B41F6FB4B300F9CF65 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				59CD22B51F6FB4B400F9CF65 /* libsqlite3.tbd */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		59D524551F58599B00B5756A = {
 			isa = PBXGroup;
 			children = (
 				59D524601F58599B00B5756A /* Venex */,
 				59D5245F1F58599B00B5756A /* Products */,
+				59CD22B41F6FB4B300F9CF65 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -114,9 +177,15 @@
 		59D524601F58599B00B5756A /* Venex */ = {
 			isa = PBXGroup;
 			children = (
+				59CD229C1F6EAA0800F9CF65 /* fmdb */,
 				59CD228D1F6E093700F9CF65 /* assets */,
 				59D524751F585E1200B5756A /* png */,
 				59D524611F58599B00B5756A /* AppDelegate.swift */,
+				59CD22AF1F6EACCC00F9CF65 /* Bridging-Header.h */,
+				59CD22B21F6F693400F9CF65 /* StringExtensions.swift */,
+				59CD22B01F6EB23400F9CF65 /* DBHelper.swift */,
+				59CD22B71F6FE61100F9CF65 /* DialogItem.swift */,
+				59CD22BB1F6FF30D00F9CF65 /* CheckboxItemCell.swift */,
 				59D524631F58599B00B5756A /* ViewController.swift */,
 				59D524901F5A4FF800B5756A /* MyChara.swift */,
 				59D524981F5AEE8000B5756A /* Map.swift */,
@@ -131,6 +200,8 @@
 		59D524751F585E1200B5756A /* png */ = {
 			isa = PBXGroup;
 			children = (
+				59CD22BF1F6FF3F200F9CF65 /* ic_check_box.png */,
+				59CD22BD1F6FF3E300F9CF65 /* ic_check_box_outline_blank.png */,
 				59D524961F5AE67E00B5756A /* key_up.png */,
 				59D524801F5A49AC00B5756A /* arthur01.png */,
 				59D524811F5A49AC00B5756A /* arthur02.png */,
@@ -221,8 +292,10 @@
 				59D524891F5A49AC00B5756A /* arthur02.png in Resources */,
 				59CD22941F6E096600F9CF65 /* map3.csv in Resources */,
 				59D524971F5AE67E00B5756A /* key_up.png in Resources */,
+				59CD22C01F6FF3F200F9CF65 /* ic_check_box.png in Resources */,
 				59D5248D1F5A49AC00B5756A /* arthur06.png in Resources */,
 				59D5248B1F5A49AC00B5756A /* arthur04.png in Resources */,
+				59CD22BE1F6FF3E300F9CF65 /* ic_check_box_outline_blank.png in Resources */,
 				59D524771F58EEF600B5756A /* greenfield.png in Resources */,
 				59D5248A1F5A49AC00B5756A /* arthur03.png in Resources */,
 				59CD22931F6E096600F9CF65 /* map2.csv in Resources */,
@@ -232,6 +305,7 @@
 				59D5247E1F59323800B5756A /* key_right.png in Resources */,
 				59CD22951F6E096600F9CF65 /* map4.csv in Resources */,
 				59D524881F5A49AC00B5756A /* arthur01.png in Resources */,
+				59CD22AE1F6EAA0800F9CF65 /* Info.plist in Resources */,
 				59D5247C1F59323800B5756A /* key_down.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -244,9 +318,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				59D524641F58599B00B5756A /* ViewController.swift in Sources */,
+				59CD22AC1F6EAA0800F9CF65 /* FMDatabaseQueue.m in Sources */,
+				59CD22BC1F6FF30D00F9CF65 /* CheckboxItemCell.swift in Sources */,
 				59D524911F5A4FF800B5756A /* MyChara.swift in Sources */,
 				59D524991F5AEE8000B5756A /* Map.swift in Sources */,
+				59CD22A91F6EAA0800F9CF65 /* FMDatabase.m in Sources */,
+				59CD22AB1F6EAA0800F9CF65 /* FMDatabasePool.m in Sources */,
+				59CD22B81F6FE61100F9CF65 /* DialogItem.swift in Sources */,
+				59CD22B31F6F693400F9CF65 /* StringExtensions.swift in Sources */,
+				59CD22AD1F6EAA0800F9CF65 /* FMResultSet.m in Sources */,
+				59CD22B11F6EB23400F9CF65 /* DBHelper.swift in Sources */,
 				59D524621F58599B00B5756A /* AppDelegate.swift in Sources */,
+				59CD22AA1F6EAA0800F9CF65 /* FMDatabaseAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -318,6 +401,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/$(PROJECT)/Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -360,6 +444,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/$(PROJECT)/Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
 			};
