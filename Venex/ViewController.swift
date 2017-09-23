@@ -33,6 +33,11 @@ class ViewController: UIViewController {
     let arthur08: UIImage = UIImage(named: "arthur08.png")!
     var imageMyChara: Array<UIImage> = []
     var sMyChara: UIImageView = UIImageView()
+    //アイテム
+    let imageItem01: UIImage = UIImage(named: "lily16")!
+    var imageItemArray: Array<UIImage> = []
+    var sItem: Array<UIImageView> = [] //あとでfor文の中で20個の配列初期化
+    var mItem: Array<Item> = []
     //ボタン類
     let btnUp    = UIButton(frame: CGRect.zero)
     let btnRight = UIButton(frame: CGRect.zero)
@@ -83,6 +88,9 @@ class ViewController: UIViewController {
         initImage()
         //親ViewにImageViewを追加
         initImageView()
+        
+        //アイテム初期化
+        initItem()
         
     }
     
@@ -360,6 +368,29 @@ class ViewController: UIViewController {
         if ( i > 7 ) { i = 0 }
         sMyChara.image = imageMyChara[i]
         sMyChara.frame = CGRect(x: mMyChara.x*scale, y: mMyChara.y*scale+statusBarHeight, width:scaledSize, height: scaledSize)
+    }
+    
+    //アイテム初期化
+    func initItem(){
+        for i in 0..<20 {
+            //まずはItemクラスを生成
+            let tempItem: Item = Item(_parent: self)
+            mItem.append(tempItem)
+            mItem[i].setItem()
+            //次に画像を生成
+            sItem.append(UIImageView())
+            sItem[i].image = imageItem01
+            sItem[i].frame = CGRect(x: mItem[i].x*scale, y: mItem[i].y*scale+statusBarHeight, width:scaledSize/2, height: scaledSize/2)
+            self.view.addSubview(sItem[i])
+        }
+    }
+    
+    //アイテム再セット
+    func setItem(){
+        for i in 0..<20 {
+            mItem[i].setItem()
+            sItem[i].frame = CGRect(x: mItem[i].x*scale, y: mItem[i].y*scale+statusBarHeight, width:scaledSize/2, height: scaledSize/2)
+        }
     }
     
     //Xcode自動生成コード

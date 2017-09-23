@@ -55,24 +55,28 @@ class MyChara {
             //左にあるマップのデータに切り替え
             viewController.currentMap = viewController.mMap[viewController.currentMap].next[3]
             viewController.drawMap()
+            viewController.setItem()
             x = 288.0
         }
         if ( x > 296.0 ){
             //右にあるマップのデータに切り替え
             viewController.currentMap = viewController.mMap[viewController.currentMap].next[1]
             viewController.drawMap()
+            viewController.setItem()
             x = 0.0
         }
         if ( y < -8.0 ){
             //上にあるマップのデータに切り替え
             viewController.currentMap = viewController.mMap[viewController.currentMap].next[0]
             viewController.drawMap()
+            viewController.setItem()
             y = 288.0
         }
         if ( y > 296.0 ){
             //下にあるマップのデータに切り替え
             viewController.currentMap = viewController.mMap[viewController.currentMap].next[2]
             viewController.drawMap()
+            viewController.setItem()
             y = 0.0
         }
         //座標更新

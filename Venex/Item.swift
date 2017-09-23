@@ -33,7 +33,7 @@ class Item {
         repeat {
             rX = arc4random_uniform(10)
             rY = arc4random_uniform(10)
-        } while parent.mMap[i].data[Int(rY)][Int(rX)] < 1
+        } while parent.mMap[i].data[Int(rY)][Int(rX)] > 0
         //次に、４隅のいずれかをランダムに決定
         let r: UInt32 = arc4random_uniform(4)
         switch ( r ){

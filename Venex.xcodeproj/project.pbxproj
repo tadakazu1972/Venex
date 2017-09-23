@@ -194,11 +194,11 @@
 				59CD22BB1F6FF30D00F9CF65 /* CheckboxItemCell.swift */,
 				59D524901F5A4FF800B5756A /* MyChara.swift */,
 				59D524981F5AEE8000B5756A /* Map.swift */,
+				5913E3761F76B61F00CBA89D /* Item.swift */,
 				59D524651F58599B00B5756A /* Main.storyboard */,
 				59D524681F58599B00B5756A /* Assets.xcassets */,
 				59D5246A1F58599B00B5756A /* LaunchScreen.storyboard */,
 				59D5246D1F58599B00B5756A /* Info.plist */,
-				5913E3761F76B61F00CBA89D /* Item.swift */,
 			);
 			path = Venex;
 			sourceTree = "<group>";
