@@ -98,7 +98,7 @@ class ViewController: UIViewController {
     }
     
     //制約ひな型
-    func Constraint(_ item: AnyObject, _ attr: NSLayoutAttribute, to: AnyObject?, _ attrTo: NSLayoutAttribute, constant: CGFloat = 0.0, multiplier: CGFloat = 1.0, relate: NSLayoutRelation = .equal, priority: UILayoutPriority = UILayoutPriorityRequired) -> NSLayoutConstraint {
+    func Constraint(_ item: AnyObject, _ attr: NSLayoutAttribute, to: AnyObject?, _ attrTo: NSLayoutAttribute, constant: CGFloat = 0.0, multiplier: CGFloat = 1.0, relate: NSLayoutRelation = .equal, priority: UILayoutPriority = UILayoutPriority.required) -> NSLayoutConstraint {
         let ret = NSLayoutConstraint(
             item:       item,
             attribute:  attr,
@@ -222,7 +222,7 @@ class ViewController: UIViewController {
     }
     
     //ロングプレス
-    func longPress(_ sender: UILongPressGestureRecognizer){
+    @objc func longPress(_ sender: UILongPressGestureRecognizer){
         longPressFlag = true
         print("長押し")
         //指が離れた検知
@@ -233,41 +233,41 @@ class ViewController: UIViewController {
     }
     
     //ボタン押下
-    func touchUp(_ sender: UIButton){
+    @objc func touchUp(_ sender: UIButton){
         mMyChara.up(speed: 1.0)
     }
-    func touchRight(_ sender: UIButton){
+    @objc func touchRight(_ sender: UIButton){
         mMyChara.right(speed: 1.0)
     }
-    func touchDown(_ sender: UIButton){
+    @objc func touchDown(_ sender: UIButton){
         mMyChara.down(speed: 1.0)
     }
-    func touchLeft(_ sender: UIButton){
+    @objc func touchLeft(_ sender: UIButton){
         mMyChara.left(speed: 1.0)
     }
     
     //ボタン押しっぱなし
-    func touchUpRepeat(_ sender: UIButton){
+    @objc func touchUpRepeat(_ sender: UIButton){
         mMyChara.up(speed: 3.0)
     }
-    func touchRightRepeat(_ sender: UIButton){
+    @objc func touchRightRepeat(_ sender: UIButton){
         mMyChara.right(speed: 3.0)
     }
-    func touchDownRepeat(_ sender: UIButton){
+    @objc func touchDownRepeat(_ sender: UIButton){
         mMyChara.down(speed: 3.0)
     }
-    func touchLeftRepeat(_ sender: UIButton){
+    @objc func touchLeftRepeat(_ sender: UIButton){
         mMyChara.left(speed: 3.0)
     }
     
-    func touchBtnItem(_ sender: UIButton){
-        mDBHelper.selectAll()
+    @objc func touchBtnItem(_ sender: UIButton){
+        mDBHelper.selectAll2()
         mDialogItem = DialogItem(parentView: self, resultFrom: mDBHelper.resultArray)
         mDialogItem.showItems()
     }
     
     //タイマー更新
-    func update(tm: Timer){
+    @objc func update(tm: Timer){
         //移動処理
         mMyChara.move()
         //描画処理

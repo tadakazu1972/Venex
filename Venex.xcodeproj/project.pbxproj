@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5913E2F61F754F5E00CBA89D /* DialogItem2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5913E2F51F754F5E00CBA89D /* DialogItem2.swift */; };
 		59CD22931F6E096600F9CF65 /* map2.csv in Resources */ = {isa = PBXBuildFile; fileRef = 59CD228E1F6E096600F9CF65 /* map2.csv */; };
 		59CD22941F6E096600F9CF65 /* map3.csv in Resources */ = {isa = PBXBuildFile; fileRef = 59CD228F1F6E096600F9CF65 /* map3.csv */; };
 		59CD22951F6E096600F9CF65 /* map4.csv in Resources */ = {isa = PBXBuildFile; fileRef = 59CD22901F6E096600F9CF65 /* map4.csv */; };
@@ -51,6 +52,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5913E2F51F754F5E00CBA89D /* DialogItem2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogItem2.swift; sourceTree = "<group>"; };
 		59CD228E1F6E096600F9CF65 /* map2.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = map2.csv; sourceTree = "<group>"; };
 		59CD228F1F6E096600F9CF65 /* map3.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = map3.csv; sourceTree = "<group>"; };
 		59CD22901F6E096600F9CF65 /* map4.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = map4.csv; sourceTree = "<group>"; };
@@ -183,10 +185,11 @@
 				59D524611F58599B00B5756A /* AppDelegate.swift */,
 				59CD22AF1F6EACCC00F9CF65 /* Bridging-Header.h */,
 				59CD22B21F6F693400F9CF65 /* StringExtensions.swift */,
+				59D524631F58599B00B5756A /* ViewController.swift */,
 				59CD22B01F6EB23400F9CF65 /* DBHelper.swift */,
 				59CD22B71F6FE61100F9CF65 /* DialogItem.swift */,
+				5913E2F51F754F5E00CBA89D /* DialogItem2.swift */,
 				59CD22BB1F6FF30D00F9CF65 /* CheckboxItemCell.swift */,
-				59D524631F58599B00B5756A /* ViewController.swift */,
 				59D524901F5A4FF800B5756A /* MyChara.swift */,
 				59D524981F5AEE8000B5756A /* Map.swift */,
 				59D524651F58599B00B5756A /* Main.storyboard */,
@@ -247,12 +250,13 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 0830;
+				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = "tadakazu nakamichi";
 				TargetAttributes = {
 					59D5245D1F58599B00B5756A = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = X7TZM2569N;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -320,6 +324,7 @@
 				59D524641F58599B00B5756A /* ViewController.swift in Sources */,
 				59CD22AC1F6EAA0800F9CF65 /* FMDatabaseQueue.m in Sources */,
 				59CD22BC1F6FF30D00F9CF65 /* CheckboxItemCell.swift in Sources */,
+				5913E2F61F754F5E00CBA89D /* DialogItem2.swift in Sources */,
 				59D524911F5A4FF800B5756A /* MyChara.swift in Sources */,
 				59D524991F5AEE8000B5756A /* Map.swift in Sources */,
 				59CD22A91F6EAA0800F9CF65 /* FMDatabase.m in Sources */,
@@ -365,7 +370,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -373,7 +380,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -416,7 +427,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -424,7 +437,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -460,7 +477,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tadakazu1972.Venex;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -474,7 +492,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tadakazu1972.Venex;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};

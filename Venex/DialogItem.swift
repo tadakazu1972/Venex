@@ -10,17 +10,18 @@ import UIKit
 
 class DialogItem: NSObject, UITableViewDelegate, UITableViewDataSource {
     //UI
-    var parent: UIViewController!
+    var parent: ViewController!
     var win: UIWindow!
     var text1: UITextView!
     var table: UITableView!
     var result: [[String]] = []
     var btnClose: UIButton!
+    var mDialogItem2: DialogItem2!
     //選択_id保存用配列
     var checkArray: [Bool] = []
     
     //コンストラクタ
-    init(parentView: UIViewController, resultFrom: [[String]]){
+    init(parentView: ViewController, resultFrom: [[String]]){
         super.init()
         parent = parentView
         win = UIWindow()
@@ -91,8 +92,8 @@ class DialogItem: NSObject, UITableViewDelegate, UITableViewDataSource {
         self.win.addSubview(btnClose)
     }
     
-    //閉じるボタンタッチ
-    func touchClose(_ sender: UIButton){
+    //閉じる
+    @objc func touchClose(_ sender: UIButton){
         win.isHidden = true      //win隠す
         text1.text = ""         //使い回しするのでテキスト内容クリア
         parent.view.alpha = 1.0 //元の画面明るく
@@ -122,5 +123,11 @@ class DialogItem: NSObject, UITableViewDelegate, UITableViewDataSource {
         self.checkArray[indexPath.row] = !self.checkArray[indexPath.row]
         //状態を即刻反映するためリロードして再描画
         table.reloadData()
+        //アイテムを何個使うのかダイアログを表示
+        mDialogItem2 = DialogItem2(parentView: parent, _item: self.result[indexPath.row][0], _num: self.result[indexPath.row][1], _id: self.result[indexPath.row][2])
+        mDialogItem2.showItemUsing()
+        //自らのダイアログを消去しておく
+        win.isHidden = true      //win1隠す
+        text1.text = ""         //使い回しするのでテキスト内容クリア
     }
 }

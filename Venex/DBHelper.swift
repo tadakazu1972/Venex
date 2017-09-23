@@ -44,10 +44,10 @@ class DBHelper {
     }
     
     func update(_ name: String, num: Int, _id: String){
-        let sql = "UPDATE items SET name = ?, num = ?, WHERE _id = ?;"
+        let sql = "UPDATE items SET name = ?, num = ? WHERE _id = ?;"
         db.open()
         db.executeUpdate(sql, withArgumentsIn: [name, num, _id])
-        print("DBの _id =\(_id)をupdateしました")
+        print("DBの _id =\(_id)をnum=\(num)にupdateしました")
         db.close()
     }
     
