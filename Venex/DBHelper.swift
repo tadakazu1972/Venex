@@ -104,22 +104,21 @@ class DBHelper {
         resultArray.removeAll()
         //SQL生成
         //let sql: String = "SELECT num FROM items WHERE name = '" + name + "';"
-        let sql: String = "SELECT * FROM items WHERE name = '" + name + "';"
+        let sql: String = "SELECT num FROM items WHERE name = '" + name + "';"
         print(sql)
         db.open()
         do {
             let results = try db.executeQuery(sql, values: nil)
             while (results.next()){
-                let _name: String = results.string(forColumn: "name")!
+                //let _name: String = results.string(forColumn: "name")!
                 let _num: String = results.string(forColumn: "num")!
-                let _id: String = results.string(forColumn: "_id")!
-                resultArray.append([_name, _num, _id])
-                print(_name)
+                //let _id: String = results.string(forColumn: "_id")!
+                resultArray.append([_num])
                 print(_num)
-                print(_id)
             }
+            print(results.columnCount) //resultsが何もなかったら0を返すのでこれでレコードがあるかないか判断するか...
         } catch {
-            
+            print("catchの部分実行している")
         }
         db.close()
     }
