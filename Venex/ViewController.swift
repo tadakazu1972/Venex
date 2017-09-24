@@ -274,14 +274,21 @@ class ViewController: UIViewController {
         mDialogItem.showItems()
     }
     
+    //*******************************************************************************************************************************
+    // ゲームループ
+    //*******************************************************************************************************************************
     //タイマー更新
     @objc func update(tm: Timer){
         //移動処理
         mMyChara.move()
         //描画処理
         drawMyChara()
+        drawItem()
     }
     
+    //*******************************************************************************************************************************
+    // 初期化関係
+    //*******************************************************************************************************************************
     //画面初期化
     func initScreen(){
         screenWidth = self.view.frame.size.width
@@ -370,6 +377,9 @@ class ViewController: UIViewController {
         sMyChara.frame = CGRect(x: mMyChara.x*scale, y: mMyChara.y*scale+statusBarHeight, width:scaledSize, height: scaledSize)
     }
     
+    //*******************************************************************************************************************************
+    // アイテム
+    //*******************************************************************************************************************************
     //アイテム初期化
     func initItem(){
         for i in 0..<20 {
@@ -393,10 +403,23 @@ class ViewController: UIViewController {
         }
     }
     
+    //アイテム描画　見えているなら描画、取得したなら隠す
+    func drawItem(){
+        for i in 0..<20 {
+            //当たり判定チェック
+            mItem[i].checkCollision()
+            //描画処理
+            if ( mItem[i].visible ){
+                sItem[i].frame = CGRect(x: mItem[i].x*scale, y: mItem[i].y*scale+statusBarHeight, width:scaledSize/2, height: scaledSize/2)
+            } else {
+                sItem[i].isHidden = true
+            }
+        }
+    }
+    
     //Xcode自動生成コード
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
 }
-

@@ -26,6 +26,8 @@ class Item {
     
     //画面切り替え時の初期配置計算
     func setItem(){
+        //もし消滅フラグが立っていたらもとにもどす
+        visible = true
         //まず、マップの中で配置できる位置を決定
         let i: Int = parent.currentMap
         var rX: UInt32 = 0
@@ -56,6 +58,13 @@ class Item {
         default:
             x = CGFloat(rX) * 32
             y = CGFloat(rY) * 32
+        }
+    }
+    
+    //主人公と当たり判定
+    func checkCollision(){
+        if ( parent.mMyChara.x < x+15 && x < parent.mMyChara.x+31 && parent.mMyChara.y < y+15 && y < parent.mMyChara.y+31 ){
+            visible = false
         }
     }
 }
