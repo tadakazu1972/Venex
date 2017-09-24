@@ -65,6 +65,8 @@ class Item {
     func checkCollision(){
         if ( parent.mMyChara.x < x+15 && x < parent.mMyChara.x+31 && parent.mMyChara.y < y+15 && y < parent.mMyChara.y+31 ){
             visible = false
+            //DBにアクセスして増やす
+            parent.mDBHelper.selectNum("木ノ実")
         }
     }
 }

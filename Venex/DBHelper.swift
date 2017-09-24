@@ -91,9 +91,31 @@ class DBHelper {
                 let _num: String = results.string(forColumn: "num")!
                 let _id: String = results.string(forColumn: "_id")!
                 resultArray.append([_name, _num, _id])
+                print(_name)
             }
         } catch {
             
+        }
+        db.close()
+    }
+    
+    //アイテムの所有数を問い合わせ
+    func selectNum(_ name: String){
+        //前の検索結果を消去
+        resultArray.removeAll()
+        //SQL生成
+        let sql: String = "SELECT num FROM items WHERE name ='" + name + "';"
+        print(sql)
+        db.open()
+        do {
+            let results =  try db.executeQuery(sql, values: [name])
+            let _name: String = results.string(forColumn: "name")!
+            let _num: String = results.string(forColumn: "num")!
+            resultArray.append([_name, _num])
+            let str: String = "name:" + resultArray[0][0] + ",num:" + resultArray[0][1]
+            print(str)
+        } catch {
+            print("selectNumで失敗をスローされました")
         }
         db.close()
     }
