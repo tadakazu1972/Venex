@@ -406,10 +406,11 @@ class ViewController: UIViewController {
     //アイテム描画　見えているなら描画、取得したなら隠す
     func drawItem(){
         for i in 0..<20 {
-            //当たり判定チェック
-            mItem[i].checkCollision()
             //描画処理
             if ( mItem[i].visible ){
+                sItem[i].isHidden = false
+                //当たり判定チェック
+                mItem[i].checkCollision()
                 sItem[i].frame = CGRect(x: mItem[i].x*scale, y: mItem[i].y*scale+statusBarHeight, width:scaledSize/2, height: scaledSize/2)
             } else {
                 sItem[i].isHidden = true
