@@ -98,25 +98,36 @@ class DBHelper {
         db.close()
     }
     
-    //アイテムの所有数を問い合わせ
-    func selectNum(_ name: String){
+    //アイテムをゲットして、レコード生成または所有数を増加
+    func add(_ name: String){
+        var _num: String = ""
+        var _id: String = ""
         //前の検索結果を消去
         resultArray.removeAll()
         //SQL生成
         //let sql: String = "SELECT num FROM items WHERE name = '" + name + "';"
-        let sql: String = "SELECT num FROM items WHERE name = '" + name + "';"
+        let sql: String = "SELECT num, _id FROM items WHERE name = '" + name + "';"
         print(sql)
         db.open()
         do {
             let results = try db.executeQuery(sql, values: nil)
             while (results.next()){
                 //let _name: String = results.string(forColumn: "name")!
-                let _num: String = results.string(forColumn: "num")!
-                //let _id: String = results.string(forColumn: "_id")!
-                resultArray.append([_num])
+                _num = results.string(forColumn: "num")!
+                _id = results.string(forColumn: "_id")!
+                resultArray.append([_num, _id])
                 print(_num)
             }
             print(results.columnCount) //resultsが何もなかったら0を返すのでこれでレコードがあるかないか判断するか...
+            //_numが""であればレコードが存在しないので、insertを実行
+            if ( _num == "" ){
+                self.insert(name, num: Int(_num)!)
+            } else {
+                //そうでなければレコードがすでに存在するのでnumに+1してupdate
+                let addedNum = Int(_num)! + 1
+                print(addedNum)
+                self.update(name, num: addedNum, _id: _id)
+            }
         } catch {
             print("catchの部分実行している")
         }
