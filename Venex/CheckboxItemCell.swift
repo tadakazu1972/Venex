@@ -31,7 +31,7 @@ class CheckboxItemCell: UITableViewCell, UITextViewDelegate {
         name?.font = UIFont.systemFont(ofSize: 20)
         self.addSubview(name!)
         
-        num = UITextView(frame: CGRect(x: 230, y: 0, width: 40, height: 40))
+        num = UITextView(frame: CGRect(x: 190, y: 0, width: 80, height: 40))
         num?.text = "nil"
         num?.font = UIFont.systemFont(ofSize: 18)
         num?.isUserInteractionEnabled = true
