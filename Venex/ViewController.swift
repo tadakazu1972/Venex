@@ -19,6 +19,8 @@ class ViewController: UIViewController {
     //Map画像
     let image0: UIImage = UIImage(named: "greenfield.png")!
     let image1: UIImage = UIImage(named: "tree.png")!
+    let image2: UIImage = UIImage(named: "brick.png")!
+    let image3: UIImage = UIImage(named: "seria.png")!
     var imageMap: Array<UIImage> = []
     var sMap: Array<UIImageView> = [] //あとでfor文の中で100の配列初期化
     var currentMap: Int = 0 //画面に表示中のマップIndex
@@ -306,6 +308,8 @@ class ViewController: UIViewController {
         //Map
         imageMap.append(image0)
         imageMap.append(image1)
+        imageMap.append(image2)
+        imageMap.append(image3)
         //MyChara
         imageMyChara.append(arthur07)
         imageMyChara.append(arthur08)
