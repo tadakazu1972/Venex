@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		5913E2F61F754F5E00CBA89D /* DialogItem2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5913E2F51F754F5E00CBA89D /* DialogItem2.swift */; };
 		5913E3771F76B61F00CBA89D /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5913E3761F76B61F00CBA89D /* Item.swift */; };
+		5913E37B1F8E560000CBA89D /* DialogSeria1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5913E37A1F8E560000CBA89D /* DialogSeria1.swift */; };
 		59CD22931F6E096600F9CF65 /* map2.csv in Resources */ = {isa = PBXBuildFile; fileRef = 59CD228E1F6E096600F9CF65 /* map2.csv */; };
 		59CD22941F6E096600F9CF65 /* map3.csv in Resources */ = {isa = PBXBuildFile; fileRef = 59CD228F1F6E096600F9CF65 /* map3.csv */; };
 		59CD22951F6E096600F9CF65 /* map4.csv in Resources */ = {isa = PBXBuildFile; fileRef = 59CD22901F6E096600F9CF65 /* map4.csv */; };
@@ -55,6 +56,7 @@
 /* Begin PBXFileReference section */
 		5913E2F51F754F5E00CBA89D /* DialogItem2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogItem2.swift; sourceTree = "<group>"; };
 		5913E3761F76B61F00CBA89D /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		5913E37A1F8E560000CBA89D /* DialogSeria1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogSeria1.swift; sourceTree = "<group>"; };
 		59CD228E1F6E096600F9CF65 /* map2.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = map2.csv; sourceTree = "<group>"; };
 		59CD228F1F6E096600F9CF65 /* map3.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = map3.csv; sourceTree = "<group>"; };
 		59CD22901F6E096600F9CF65 /* map4.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = map4.csv; sourceTree = "<group>"; };
@@ -189,9 +191,10 @@
 				59CD22B21F6F693400F9CF65 /* StringExtensions.swift */,
 				59D524631F58599B00B5756A /* ViewController.swift */,
 				59CD22B01F6EB23400F9CF65 /* DBHelper.swift */,
+				59CD22BB1F6FF30D00F9CF65 /* CheckboxItemCell.swift */,
 				59CD22B71F6FE61100F9CF65 /* DialogItem.swift */,
 				5913E2F51F754F5E00CBA89D /* DialogItem2.swift */,
-				59CD22BB1F6FF30D00F9CF65 /* CheckboxItemCell.swift */,
+				5913E37A1F8E560000CBA89D /* DialogSeria1.swift */,
 				59D524901F5A4FF800B5756A /* MyChara.swift */,
 				59D524981F5AEE8000B5756A /* Map.swift */,
 				5913E3761F76B61F00CBA89D /* Item.swift */,
@@ -326,6 +329,7 @@
 			files = (
 				59D524641F58599B00B5756A /* ViewController.swift in Sources */,
 				59CD22AC1F6EAA0800F9CF65 /* FMDatabaseQueue.m in Sources */,
+				5913E37B1F8E560000CBA89D /* DialogSeria1.swift in Sources */,
 				59CD22BC1F6FF30D00F9CF65 /* CheckboxItemCell.swift in Sources */,
 				5913E2F61F754F5E00CBA89D /* DialogItem2.swift in Sources */,
 				59D524911F5A4FF800B5756A /* MyChara.swift in Sources */,

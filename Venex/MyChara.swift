@@ -16,6 +16,8 @@ class MyChara {
     var base_index: Int!
     var index: Int!
     var viewController: ViewController! //ViewControllerのメンバー変数であるcurrentMapにアクセスするため保存
+    //利用クラス
+    var mDialogSeria1: DialogSeria1!
     
     //コンストラクタ
     init(parent: ViewController){
@@ -49,6 +51,12 @@ class MyChara {
         if ( viewController.mMap[i].data[y1][x1] > 0 || viewController.mMap[i].data[y1][x2] > 0 || viewController.mMap[i].data[y2][x1] > 0 || viewController.mMap[i].data[y2][x2] > 0){
             vx = 0.0
             vy = 0.0
+            //セリア判定
+            if ( viewController.mMap[i].data[y1][x1] == 3 || viewController.mMap[i].data[y1][x2] == 3 || viewController.mMap[i].data[y2][x1] == 3 || viewController.mMap[i].data[y2][x2] == 3){
+                //ダイアログ呼び出し
+                mDialogSeria1 = DialogSeria1(parentView: viewController)
+                mDialogSeria1.showInfo()
+            }
         }
         //画面端判定
         if ( x < -8.0 ){

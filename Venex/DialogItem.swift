@@ -74,7 +74,7 @@ class DialogItem: NSObject, UITableViewDelegate, UITableViewDataSource {
         table.estimatedRowHeight = 60 //下とあわせこの２行で複数表示されるときの間がひらくように
         table.rowHeight = UITableViewAutomaticDimension
         table.register(CheckboxItemCell.self, forCellReuseIdentifier:"CheckboxItemCell")
-        table.separatorColor = UIColor.clear
+        //table.separatorColor = UIColor.clear //線を消す
         table.allowsMultipleSelection = true
         self.win.addSubview(table)
         
