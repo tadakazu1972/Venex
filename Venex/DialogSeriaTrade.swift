@@ -25,7 +25,7 @@ class DialogSeriaTrade: NSObject, UITableViewDelegate, UITableViewDataSource {
         table = UITableView()
         btnClose = UIButton()
         text1.text = "アイテム交換"
-        items = ["ユリ５個を回復薬1個に交換","回復薬３個を回復薬（中）１個に交換"]
+        items = ["ユリ×５ ▶︎ 回復薬(小)×1","回復薬(小)×３ ▶︎ 回復薬(中)×１"]
     }
     
     //デコンストラクタ

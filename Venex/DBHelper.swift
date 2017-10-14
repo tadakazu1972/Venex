@@ -121,7 +121,7 @@ class DBHelper {
             print(results.columnCount) //resultsが何もなかったら0を返すのでこれでレコードがあるかないか判断するか...
             //_numが""であればレコードが存在しないので、insertを実行
             if ( _num == "" ){
-                self.insert(name, num: Int(_num)!)
+                self.insert(name, num: 1)
             } else {
                 //そうでなければレコードがすでに存在するのでnumに+1してupdate
                 let addedNum = Int(_num)! + 1
@@ -129,7 +129,51 @@ class DBHelper {
                 self.update(name, num: addedNum, _id: _id)
             }
         } catch {
-            print("catchの部分実行している")
+            print("addでエラーが出ました")
+        }
+        db.close()
+    }
+    
+    //アイテム交換　引数1：素材名, 引数2:必要数, 引数3:生成アイテム名, 引数4:生成数
+    func trade(_ name: String, input: String, name2: String, output: String){
+        var _num: String = ""
+        var _id: String = ""
+        //前の検索結果を消去
+        resultArray.removeAll()
+        //SQL生成
+        let sql: String = "SELECT num, _id FROM items WHERE name = '" + name + "';"
+        print(sql)
+        db.open()
+        do {
+            let results = try db.executeQuery(sql, values: nil)
+            while (results.next()){
+                //let _name: String = results.string(forColumn: "name")!
+                _num = results.string(forColumn: "num")!
+                _id = results.string(forColumn: "_id")!
+                resultArray.append([_num, _id])
+                print(_num)
+            }
+            print(results.columnCount) //resultsが何もなかったら0を返すのでこれでレコードがあるかないか判断するか...
+            //_numが""であればレコードが存在しないので、素材が無いことを伝える
+            if ( _num == "" ){
+                //
+                print("素材アイテムがありません")
+            } else {
+                // _numをIntに変換して、必要数と比較する
+                let zaikoNum = Int(_num)!
+                let inputNum = Int(input)!
+                if ( zaikoNum < inputNum ){
+                    //在庫が必要数に足りていない
+                    print("アイテムが必要数足りません")
+                } else {
+                    //素材アイテムを必要数減らし、生成アイテムを生成数分生み出す
+                    let addedNum = Int(_num)! + 1
+                    print(addedNum)
+                    self.update(name, num: addedNum, _id: _id)
+                }
+            }
+        } catch {
+            print("tradeでエラーが出ました")
         }
         db.close()
     }

@@ -16,6 +16,8 @@ class DialogSeria1: NSObject, UITableViewDelegate, UITableViewDataSource {
     var table: UITableView!
     var items:[String] = ["","",""]
     var btnClose: UIButton!
+    //遷移先
+    var mDialogSeriaTrade: DialogSeriaTrade!
     
     //コンストラクタ
     init(parentView: ViewController){
@@ -108,8 +110,8 @@ class DialogSeria1: NSObject, UITableViewDelegate, UITableViewDataSource {
         
         switch indexPath.row {
         case 0:
-            //mKinentaiSelectDialog2 = KinentaiSelectDialog2(index: 11, parentView: parent)
-            //mKinentaiSelectDialog2.showInfo()
+            mDialogSeriaTrade = DialogSeriaTrade(parentView: parent)
+            mDialogSeriaTrade.showInfo()
             break
         case 1:
             //mKinentaiSelectDialog2 = KinentaiSelectDialog2(index: 12, parentView: parent)
