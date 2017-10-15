@@ -159,7 +159,7 @@ class DBHelper {
                 //
                 
                 print("素材アイテムがありません")
-                return "あら。\(name)が必要なんですよ。"
+                return "ごめんなさい、\(name)を持っていないようですね。入手してからいらしてくださいね。"
             } else {
                 // _numをIntに変換して、必要数と比較する
                 var zaikoNum: Int = Int(_num)!
@@ -167,7 +167,7 @@ class DBHelper {
                 if ( zaikoNum < inputNum ){
                     //在庫が必要数に足りていない
                     print("アイテムが必要数足りません")
-                    return "あら。\(name)が足りないみたいね。"
+                    return "あら。\(name)が足りないようです。手に入れられたら、またいらしてくださいね。"
                 } else {
                     //素材アイテムを必要数減らし、生成アイテムを生成数分生み出す
                     //1.アイテムを減らす処理

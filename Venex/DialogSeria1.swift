@@ -26,7 +26,7 @@ class DialogSeria1: NSObject, UITableViewDelegate, UITableViewDataSource {
         text1 = UITextView()
         table = UITableView()
         btnClose = UIButton()
-        text1.text = "どうしました？"
+        text1.text = "【セリア】いらっしゃい。"
         items = ["アイテム交換","話す"]
     }
     
@@ -43,7 +43,7 @@ class DialogSeria1: NSObject, UITableViewDelegate, UITableViewDataSource {
     //表示
     func showInfo (){
         //元の画面を暗く
-        parent.view.alpha = 0.3
+        //parent.view.alpha = 0.3
         //初期設定
         //Win1
         win1.backgroundColor = UIColor.white
@@ -51,6 +51,8 @@ class DialogSeria1: NSObject, UITableViewDelegate, UITableViewDataSource {
         win1.layer.position = CGPoint(x: parent.view.frame.width/2, y: parent.view.frame.height/2)
         win1.alpha = 1.0
         win1.layer.cornerRadius = 10
+        win1.layer.borderColor = UIColor(red: 0.3, green: 0.3, blue: 0.6, alpha: 1.0).cgColor
+        win1.layer.borderWidth = 3.0
         //KeyWindowにする
         win1.makeKey()
         //表示
