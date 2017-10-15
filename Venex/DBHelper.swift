@@ -135,7 +135,7 @@ class DBHelper {
     }
     
     //アイテム交換　引数1：素材名, 引数2:必要数, 引数3:生成アイテム名, 引数4:生成数
-    func trade(_ name: String, input: String, name2: String, output: String){
+    func trade(_ name: String, input: Int, name2: String, output: Int){
         var _num: String = ""
         var _id: String = ""
         //前の検索結果を消去
@@ -160,16 +160,54 @@ class DBHelper {
                 print("素材アイテムがありません")
             } else {
                 // _numをIntに変換して、必要数と比較する
-                let zaikoNum = Int(_num)!
-                let inputNum = Int(input)!
+                var zaikoNum: Int = Int(_num)!
+                let inputNum: Int = input
                 if ( zaikoNum < inputNum ){
                     //在庫が必要数に足りていない
                     print("アイテムが必要数足りません")
                 } else {
                     //素材アイテムを必要数減らし、生成アイテムを生成数分生み出す
-                    let addedNum = Int(_num)! + 1
-                    print(addedNum)
-                    self.update(name, num: addedNum, _id: _id)
+                    //1.アイテムを減らす処理
+                    //(1)アイテムをすべて使ってしまう場合はdeleteを実行
+                    if ( zaikoNum == inputNum ){
+                        self.delete(_id)
+                        print("素材アイテムdeleteだん")
+                    } else {
+                        //(2)必要数を減算する場合はupdateを実行
+                        zaikoNum = zaikoNum - inputNum
+                        self.update(name, num: zaikoNum, _id: _id)
+                        print("素材アイテムupdateだん")
+                    }
+                    //2.新たに生成したアイテムをDBに追加する処理
+                    //前の検索結果を消去
+                    var _num2: String = ""
+                    var _id2: String = ""
+                    resultArray.removeAll()
+                    //生成アイテムが既に存在するか検索するクエリーを生成
+                    let sql2: String = "SELECT num, _id FROM items WHERE name = '" + name2 + "';"
+                    print(sql2)
+                    do {
+                        let results = try db.executeQuery(sql2, values: nil)
+                        while (results.next()){
+                            _num2 = results.string(forColumn: "num")!
+                            _id2  = results.string(forColumn: "_id")!
+                            resultArray.append([_num2, _id2])
+                            print(_num2 + "の検索クエリーsql2実行だん")
+                        }
+                        print(results.columnCount) //resultsが何もなかったら0を返すのでこれでレコードがあるかないか判断するか...
+                        //_numが""であればレコードが存在しないので、insertを実行
+                        if ( _num2 == "" ){
+                            self.insert(name2, num: output)
+                            print("生成アイテムのinsertだん")
+                        } else {
+                            //そうでなければレコードがすでに存在するのでoutput数を加算してupdate
+                            let addedNum: Int = Int(_num2)! + output
+                            self.update(name2, num: addedNum, _id: _id2)
+                            print("生成アイテムのupdateだん")
+                        }
+                    } catch {
+                        print("アイテム生成のsql2処理でエラーが出ました")
+                    }
                 }
             }
         } catch {

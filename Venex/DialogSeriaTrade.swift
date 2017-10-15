@@ -108,8 +108,7 @@ class DialogSeriaTrade: NSObject, UITableViewDelegate, UITableViewDataSource {
         
         switch indexPath.row {
         case 0:
-            //mKinentaiSelectDialog2 = KinentaiSelectDialog2(index: 11, parentView: parent)
-            //mKinentaiSelectDialog2.showInfo()
+            parent.mDBHelper.trade("ユリ", input:5, name2:"回復薬(小)", output:1)
             break
         case 1:
             //mKinentaiSelectDialog2 = KinentaiSelectDialog2(index: 12, parentView: parent)
