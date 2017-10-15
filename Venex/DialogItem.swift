@@ -129,5 +129,7 @@ class DialogItem: NSObject, UITableViewDelegate, UITableViewDataSource {
         //自らのダイアログを消去しておく
         win.isHidden = true      //win1隠す
         text1.text = ""         //使い回しするのでテキスト内容クリア
+        //win.alpha = 0.3
+        //btnClose.isHidden = true  //閉じるボタンは隠す
     }
 }

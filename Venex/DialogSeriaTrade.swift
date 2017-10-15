@@ -139,13 +139,15 @@ class DialogSeriaTrade: NSObject, UITableViewDelegate, UITableViewDataSource {
     
     //アイテム交換の結果コメント表示
     func showResult(){
-        //下のwindowを少し暗くする
-        win1.alpha = 0.5
+        //下のwindowを暗くする
+        win1.alpha = 0.3
+        //下のwindowにひっついてる閉じるボタンを隠す(押されると消えてまずい)
+        btnClose.isHidden = true
         //初期設定
         //Win2
         win2.backgroundColor = UIColor.white
-        win2.frame = CGRect(x: 80,y: 200,width: parent.view.frame.width-40,height: 200)
-        win2.layer.position = CGPoint(x: parent.view.frame.width/2+10, y: parent.view.frame.height/2+10)
+        win2.frame = CGRect(x: 80,y: 200,width: parent.view.frame.width-40,height: 140)
+        win2.layer.position = CGPoint(x: parent.view.frame.width/2, y: parent.view.frame.height/2)
         win2.alpha = 1.0
         win2.layer.cornerRadius = 10
         win2.layer.borderColor = UIColor(red: 0.3, green: 0.3, blue: 0.6, alpha: 1.0).cgColor
@@ -168,7 +170,7 @@ class DialogSeriaTrade: NSObject, UITableViewDelegate, UITableViewDataSource {
         btnClose2.setTitleColor(UIColor.white, for: UIControlState())
         btnClose2.layer.masksToBounds = true
         btnClose2.layer.cornerRadius = 10.0
-        btnClose2.layer.position = CGPoint(x: self.win1.frame.width/2, y: self.win1.frame.height-20)
+        btnClose2.layer.position = CGPoint(x: self.win2.frame.width/2, y: self.win2.frame.height-20)
         btnClose2.addTarget(self, action: #selector(self.onClickClose2(_:)), for: .touchUpInside)
         self.win2.addSubview(btnClose2)
     }
@@ -178,5 +180,6 @@ class DialogSeriaTrade: NSObject, UITableViewDelegate, UITableViewDataSource {
         win2.isHidden = true    //win2隠す
         text2.text = ""         //使い回しするのでテキスト内容クリア
         win1.alpha = 1.0        //下のwindow明るく
+        btnClose.isHidden = false //ボタン表示
     }
 }
