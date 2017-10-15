@@ -40,8 +40,8 @@ class DialogSeriaTrade: NSObject, UITableViewDelegate, UITableViewDataSource {
     
     //表示
     func showInfo (){
-        //元の画面を暗く
-        parent.view.alpha = 0.3
+        //元の画面を暗くしないほうがいいのでは
+        //parent.view.alpha = 0.3
         //初期設定
         //Win1
         win1.backgroundColor = UIColor.white
@@ -108,7 +108,7 @@ class DialogSeriaTrade: NSObject, UITableViewDelegate, UITableViewDataSource {
         
         switch indexPath.row {
         case 0:
-            parent.mDBHelper.trade("ユリ", input:5, name2:"回復薬(小)", output:1)
+            text1.text = parent.mDBHelper.trade("ユリ", input:5, name2:"回復薬(小)", output:1)
             break
         case 1:
             //mKinentaiSelectDialog2 = KinentaiSelectDialog2(index: 12, parentView: parent)
@@ -119,8 +119,8 @@ class DialogSeriaTrade: NSObject, UITableViewDelegate, UITableViewDataSource {
         }
         
         //自らのダイアログを消去しておく
-        win1.isHidden = true      //win1隠す
-        text1.text = ""         //使い回しするのでテキスト内容クリア
-        items = ["","","",""]
+        //win1.isHidden = true      //win1隠す
+        //text1.text = ""         //使い回しするのでテキスト内容クリア
+        //items = ["","","",""]
     }
 }

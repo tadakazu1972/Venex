@@ -135,7 +135,7 @@ class DBHelper {
     }
     
     //アイテム交換　引数1：素材名, 引数2:必要数, 引数3:生成アイテム名, 引数4:生成数
-    func trade(_ name: String, input: Int, name2: String, output: Int){
+    func trade(_ name: String, input: Int, name2: String, output: Int) -> String {
         var _num: String = ""
         var _id: String = ""
         //前の検索結果を消去
@@ -157,7 +157,9 @@ class DBHelper {
             //_numが""であればレコードが存在しないので、素材が無いことを伝える
             if ( _num == "" ){
                 //
+                
                 print("素材アイテムがありません")
+                return "あら。\(name)が必要なんですよ。"
             } else {
                 // _numをIntに変換して、必要数と比較する
                 var zaikoNum: Int = Int(_num)!
@@ -165,6 +167,7 @@ class DBHelper {
                 if ( zaikoNum < inputNum ){
                     //在庫が必要数に足りていない
                     print("アイテムが必要数足りません")
+                    return "あら。\(name)が足りないみたいね。"
                 } else {
                     //素材アイテムを必要数減らし、生成アイテムを生成数分生み出す
                     //1.アイテムを減らす処理
@@ -186,6 +189,7 @@ class DBHelper {
                     //生成アイテムが既に存在するか検索するクエリーを生成
                     let sql2: String = "SELECT num, _id FROM items WHERE name = '" + name2 + "';"
                     print(sql2)
+                    db.open()
                     do {
                         let results = try db.executeQuery(sql2, values: nil)
                         while (results.next()){
@@ -208,12 +212,14 @@ class DBHelper {
                     } catch {
                         print("アイテム生成のsql2処理でエラーが出ました")
                     }
+                    db.close()
                 }
             }
         } catch {
             print("tradeでエラーが出ました")
         }
         db.close()
+        return "\(name2)を\(output)個入手しました"
     }
     
     /*func select(_ kubun: String, syozoku0: String, syozoku: String, kinmu: String){
