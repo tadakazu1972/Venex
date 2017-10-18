@@ -14,16 +14,21 @@ class DialogSeriaTalk: NSObject {
     var win1: UIWindow!
     var text1: UITextView!
     var btnClose: UIButton!
-    //遷移先
-    var mDialogSeriaTrade: DialogSeriaTrade!
+    //データ
+    var data: [[String]]!
     
     //コンストラクタ
     init(parentView: ViewController){
+        super.init()
+        
         parent = parentView
         win1 = UIWindow()
         text1 = UITextView()
         btnClose = UIButton()
         text1.text = "【セリア】こんにちわ。"
+        data = [[String]](repeating: [String](repeating:"a", count:10), count:10)
+        //データ読み込み
+        loadCSV()
     }
     
     //デコンストラクタ
@@ -78,5 +83,28 @@ class DialogSeriaTalk: NSObject {
         win1.isHidden = true      //win1隠す
         text1.text = ""         //使い回しするのでテキスト内容クリア
         parent.view.alpha = 1.0 //元の画面明るく
+    }
+    
+    //CSV読み込み
+    func loadCSV(){
+        var result: [[String]] = []
+        if let path = Bundle.main.path(forResource: "map0", ofType: "csv") {
+            var csvString = ""
+            do {
+                csvString = try String(contentsOfFile: path, encoding: String.Encoding.utf8)
+            } catch let error as NSError {
+                print(error.localizedDescription)
+            }
+            csvString.enumerateLines { (line, stop) -> () in
+                result.append(line.components(separatedBy: ",")) //これでresult[y][x]の呼び出しが可能となる
+            }
+            //メンバー変数に変換して代入
+            for y in 0..<10 {
+                data[y][0] = result[y][0]
+            }
+            print("csv読み込み完了")
+        } else {
+            text1.text = "csvファイル読み込みエラー"
+        }
     }
 }
