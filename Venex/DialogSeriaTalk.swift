@@ -64,6 +64,7 @@ class DialogSeriaTalk: NSObject {
         text1.textColor = UIColor.black
         text1.textAlignment = NSTextAlignment.left
         text1.isEditable = false
+        text1.text = "【セリア】\n" + data[0][0]
         self.win1.addSubview(text1)
         
         //閉じるボタン生成
