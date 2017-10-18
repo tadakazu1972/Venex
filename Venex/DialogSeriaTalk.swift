@@ -1,34 +1,29 @@
 //
-//  DialogSeria1.swift
+//  DialogSeriaTalk.swift
 //  Venex
 //
-//  Created by 中道忠和 on 2017/10/11.
+//  Created by 中道 忠和 on 2017/10/18.
 //  Copyright © 2017年 tadakazu nakamichi. All rights reserved.
 //
 
 import UIKit
 
-class DialogSeria1: NSObject, UITableViewDelegate, UITableViewDataSource {
+class DialogSeriaTalk: NSObject {
     //ボタン押したら出るUIWindow
     var parent: ViewController!
     var win1: UIWindow!
     var text1: UITextView!
-    var table: UITableView!
-    var items:[String] = ["","",""]
     var btnClose: UIButton!
     //遷移先
     var mDialogSeriaTrade: DialogSeriaTrade!
-    var mDialogSeriaTalk: DialogSeriaTalk!
     
     //コンストラクタ
     init(parentView: ViewController){
         parent = parentView
         win1 = UIWindow()
         text1 = UITextView()
-        table = UITableView()
         btnClose = UIButton()
-        text1.text = "【セリア】いらっしゃい。"
-        items = ["アイテム交換","話す"]
+        text1.text = "【セリア】こんにちわ。"
     }
     
     //デコンストラクタ
@@ -36,8 +31,6 @@ class DialogSeria1: NSObject, UITableViewDelegate, UITableViewDataSource {
         parent = nil
         win1 = nil
         text1 = nil
-        table = nil
-        items = ["","",""]
         btnClose = nil
     }
     
@@ -60,23 +53,13 @@ class DialogSeria1: NSObject, UITableViewDelegate, UITableViewDataSource {
         self.win1.makeKeyAndVisible()
         
         //TextView生成
-        text1.frame = CGRect(x: 10, y: 0, width: self.win1.frame.width-20, height: 40)
+        text1.frame = CGRect(x: 10, y: 0, width: self.win1.frame.width-20, height: 200)
         text1.backgroundColor = UIColor.clear
         text1.font = UIFont.systemFont(ofSize: CGFloat(18))
         text1.textColor = UIColor.black
         text1.textAlignment = NSTextAlignment.left
         text1.isEditable = false
         self.win1.addSubview(text1)
-        
-        //TableView生成
-        table.frame = CGRect(x: 10,y: 41, width: self.win1.frame.width-20, height: self.win1.frame.height-60)
-        table.delegate = self
-        table.dataSource = self
-        table.estimatedRowHeight = 10 //下とあわせこの２行で複数行表示されるときの間がひらくようになる
-        table.rowHeight = UITableViewAutomaticDimension //同上
-        table.register(UITableViewCell.self, forCellReuseIdentifier:"cell")
-        //table.separatorColor = UIColor.clear
-        self.win1.addSubview(table)
         
         //閉じるボタン生成
         btnClose.frame = CGRect(x: 0,y: 0,width: 100,height: 30)
@@ -95,38 +78,5 @@ class DialogSeria1: NSObject, UITableViewDelegate, UITableViewDataSource {
         win1.isHidden = true      //win1隠す
         text1.text = ""         //使い回しするのでテキスト内容クリア
         parent.view.alpha = 1.0 //元の画面明るく
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection sction: Int)-> Int {
-        return self.items.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell:UITableViewCell = table.dequeueReusableCell(withIdentifier: "cell")! as UITableViewCell
-        cell.textLabel?.numberOfLines = 0 //これをしないと複数行表示されない
-        cell.textLabel?.text = self.items[indexPath.row]
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("セルを選択 #\(indexPath.row)!")
-        
-        switch indexPath.row {
-        case 0:
-            mDialogSeriaTrade = DialogSeriaTrade(parentView: parent)
-            mDialogSeriaTrade.showInfo()
-            break
-        case 1:
-            mDialogSeriaTalk = DialogSeriaTalk(parentView: parent)
-            mDialogSeriaTalk.showInfo()
-            break
-        default:
-            break
-        }
-        
-        //自らのダイアログを消去しておく
-        win1.isHidden = true      //win1隠す
-        text1.text = ""         //使い回しするのでテキスト内容クリア
-        items = ["","","",""]
     }
 }

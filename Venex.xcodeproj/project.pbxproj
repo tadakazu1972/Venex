@@ -51,6 +51,7 @@
 		59D524911F5A4FF800B5756A /* MyChara.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59D524901F5A4FF800B5756A /* MyChara.swift */; };
 		59D524971F5AE67E00B5756A /* key_up.png in Resources */ = {isa = PBXBuildFile; fileRef = 59D524961F5AE67E00B5756A /* key_up.png */; };
 		59D524991F5AEE8000B5756A /* Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59D524981F5AEE8000B5756A /* Map.swift */; };
+		59E594CF1F97127500652276 /* DialogSeriaTalk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59E594CE1F97127500652276 /* DialogSeriaTalk.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -107,6 +108,7 @@
 		59D524901F5A4FF800B5756A /* MyChara.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyChara.swift; sourceTree = "<group>"; };
 		59D524961F5AE67E00B5756A /* key_up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = key_up.png; sourceTree = "<group>"; };
 		59D524981F5AEE8000B5756A /* Map.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Map.swift; sourceTree = "<group>"; };
+		59E594CE1F97127500652276 /* DialogSeriaTalk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogSeriaTalk.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -195,6 +197,7 @@
 				59CD22B71F6FE61100F9CF65 /* DialogItem.swift */,
 				5913E37A1F8E560000CBA89D /* DialogSeria1.swift */,
 				595CA0DB1F91BBFE002675B2 /* DialogSeriaTrade.swift */,
+				59E594CE1F97127500652276 /* DialogSeriaTalk.swift */,
 				59D524901F5A4FF800B5756A /* MyChara.swift */,
 				59D524981F5AEE8000B5756A /* Map.swift */,
 				5913E3761F76B61F00CBA89D /* Item.swift */,
@@ -340,6 +343,7 @@
 				5913E3771F76B61F00CBA89D /* Item.swift in Sources */,
 				595CA0DC1F91BBFE002675B2 /* DialogSeriaTrade.swift in Sources */,
 				59CD22AD1F6EAA0800F9CF65 /* FMResultSet.m in Sources */,
+				59E594CF1F97127500652276 /* DialogSeriaTalk.swift in Sources */,
 				59CD22B11F6EB23400F9CF65 /* DBHelper.swift in Sources */,
 				59D524621F58599B00B5756A /* AppDelegate.swift in Sources */,
 				59CD22AA1F6EAA0800F9CF65 /* FMDatabaseAdditions.m in Sources */,
