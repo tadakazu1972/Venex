@@ -52,6 +52,8 @@
 		59D524971F5AE67E00B5756A /* key_up.png in Resources */ = {isa = PBXBuildFile; fileRef = 59D524961F5AE67E00B5756A /* key_up.png */; };
 		59D524991F5AEE8000B5756A /* Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59D524981F5AEE8000B5756A /* Map.swift */; };
 		59E594CF1F97127500652276 /* DialogSeriaTalk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59E594CE1F97127500652276 /* DialogSeriaTalk.swift */; };
+		59E594D41F971A7900652276 /* test.csv in Resources */ = {isa = PBXBuildFile; fileRef = 59E594D31F971A7000652276 /* test.csv */; };
+		59E594D81F9723C600652276 /* talkSeria.csv in Resources */ = {isa = PBXBuildFile; fileRef = 59E594D71F9723B300652276 /* talkSeria.csv */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -109,6 +111,8 @@
 		59D524961F5AE67E00B5756A /* key_up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = key_up.png; sourceTree = "<group>"; };
 		59D524981F5AEE8000B5756A /* Map.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Map.swift; sourceTree = "<group>"; };
 		59E594CE1F97127500652276 /* DialogSeriaTalk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogSeriaTalk.swift; sourceTree = "<group>"; };
+		59E594D31F971A7000652276 /* test.csv */ = {isa = PBXFileReference; lastKnownFileType = text; path = test.csv; sourceTree = "<group>"; };
+		59E594D71F9723B300652276 /* talkSeria.csv */ = {isa = PBXFileReference; lastKnownFileType = text; path = talkSeria.csv; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +137,8 @@
 				59CD22901F6E096600F9CF65 /* map4.csv */,
 				59CD22911F6E096600F9CF65 /* map5.csv */,
 				59CD22921F6E096600F9CF65 /* map6.csv */,
+				59E594D31F971A7000652276 /* test.csv */,
+				59E594D71F9723B300652276 /* talkSeria.csv */,
 			);
 			name = assets;
 			sourceTree = "<group>";
@@ -293,6 +299,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				59E594D81F9723C600652276 /* talkSeria.csv in Resources */,
+				59E594D41F971A7900652276 /* test.csv in Resources */,
 				59D5246C1F58599B00B5756A /* LaunchScreen.storyboard in Resources */,
 				59D524691F58599B00B5756A /* Assets.xcassets in Resources */,
 				59D5247D1F59323800B5756A /* key_left.png in Resources */,

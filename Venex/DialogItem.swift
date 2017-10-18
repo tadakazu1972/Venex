@@ -172,7 +172,7 @@ class DialogItem: NSObject, UITableViewDelegate, UITableViewDataSource {
         self.win2.makeKeyAndVisible()
         
         //TextView
-        text2.frame = CGRect(x: 10,y: 10, width: self.win2.frame.width - 20, height: self.win2.frame.height-60)
+        text2.frame = CGRect(x: 10,y: 10, width: self.win2.frame.width - 20, height: self.win2.frame.height-40)
         text2.backgroundColor = UIColor.clear
         text2.font = UIFont.systemFont(ofSize: CGFloat(18))
         text2.textColor = UIColor.black

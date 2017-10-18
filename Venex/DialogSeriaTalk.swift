@@ -14,8 +14,11 @@ class DialogSeriaTalk: NSObject {
     var win1: UIWindow!
     var text1: UITextView!
     var btnClose: UIButton!
+    var btnNext: UIButton!
     //データ
     var data: [[String]]!
+    var index: Int = 0
+    let indexMax: Int = 16
     
     //コンストラクタ
     init(parentView: ViewController){
@@ -25,8 +28,9 @@ class DialogSeriaTalk: NSObject {
         win1 = UIWindow()
         text1 = UITextView()
         btnClose = UIButton()
+        btnNext  = UIButton()
         text1.text = "【セリア】こんにちわ。"
-        data = [[String]](repeating: [String](repeating:"a", count:10), count:10)
+        data = [[String]](repeating: [String](repeating:"a", count:1), count:indexMax+1)
         //データ読み込み
         loadCSV()
     }
@@ -37,6 +41,7 @@ class DialogSeriaTalk: NSObject {
         win1 = nil
         text1 = nil
         btnClose = nil
+        btnNext = nil
     }
     
     //表示
@@ -68,15 +73,27 @@ class DialogSeriaTalk: NSObject {
         self.win1.addSubview(text1)
         
         //閉じるボタン生成
-        btnClose.frame = CGRect(x: 0,y: 0,width: 100,height: 30)
+        btnClose.frame = CGRect(x: 0,y: 0,width: 80,height: 30)
         btnClose.backgroundColor = UIColor.orange
         btnClose.setTitle("閉じる", for: UIControlState())
         btnClose.setTitleColor(UIColor.white, for: UIControlState())
         btnClose.layer.masksToBounds = true
         btnClose.layer.cornerRadius = 10.0
-        btnClose.layer.position = CGPoint(x: self.win1.frame.width/2, y: self.win1.frame.height-20)
+        btnClose.layer.position = CGPoint(x: self.win1.frame.width/2-80, y: self.win1.frame.height-20)
         btnClose.addTarget(self, action: #selector(self.onClickClose(_:)), for: .touchUpInside)
         self.win1.addSubview(btnClose)
+        
+        //次へボタン生成
+        btnNext.isHidden = false  //２回目は消されてたボタンを表示
+        btnNext.frame = CGRect(x: 0,y: 0,width: 80,height: 30)
+        btnNext.backgroundColor = UIColor.blue
+        btnNext.setTitle("次へ", for: UIControlState())
+        btnNext.setTitleColor(UIColor.white, for: UIControlState())
+        btnNext.layer.masksToBounds = true
+        btnNext.layer.cornerRadius = 10.0
+        btnNext.layer.position = CGPoint(x: self.win1.frame.width/2+80, y: self.win1.frame.height-20)
+        btnNext.addTarget(self, action: #selector(self.onClickNext(_:)), for: .touchUpInside)
+        self.win1.addSubview(btnNext)
     }
     
     //閉じる
@@ -86,10 +103,19 @@ class DialogSeriaTalk: NSObject {
         parent.view.alpha = 1.0 //元の画面明るく
     }
     
+    //会話を次へ進める
+    @objc func onClickNext(_ sender: UIButton){
+        index = index + 1
+        if ( index > indexMax ){
+            index = 0
+        }
+        text1.text = "【セリア】\n" + data[index][0]
+    }
+    
     //CSV読み込み
     func loadCSV(){
         var result: [[String]] = []
-        if let path = Bundle.main.path(forResource: "map0", ofType: "csv") {
+        if let path = Bundle.main.path(forResource: "talkSeria", ofType: "csv") {
             var csvString = ""
             do {
                 csvString = try String(contentsOfFile: path, encoding: String.Encoding.utf8)
@@ -100,7 +126,7 @@ class DialogSeriaTalk: NSObject {
                 result.append(line.components(separatedBy: ",")) //これでresult[y][x]の呼び出しが可能となる
             }
             //メンバー変数に変換して代入
-            for y in 0..<10 {
+            for y in 0..<indexMax+1 {
                 data[y][0] = result[y][0]
             }
             print("csv読み込み完了")
