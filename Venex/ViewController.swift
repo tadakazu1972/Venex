@@ -27,6 +27,7 @@ class ViewController: UIViewController {
     var sMap: Array<UIImageView> = [] //あとでfor文の中で100の配列初期化
     var currentMap: Int = 0 //画面に表示中のマップIndex
     var mMap: Array<Map> = []
+    var fieldFlag: Bool = true //セリアがマップid="3"であり、衝突判定で地上にいるか判定フラグ
     //MyChara
     let arthur01: UIImage = UIImage(named: "arthur01.png")!
     let arthur02: UIImage = UIImage(named: "arthur02.png")!
@@ -327,15 +328,14 @@ class ViewController: UIViewController {
     
     //マップデータ初期化、読み込み
     func initMap(){
-        let fileName: [String] = ["map0","map1","map2","map3","map4","map5","map6","fieldMap7","fieldMap8"]
-        for i in 0..<9 {
+        let fileName: [String] = ["map0","map1","map2","map3","map4","map5","map6","fieldMap7","fieldMap8","map0","map0"]
+        for i in 0..<11 {
             //Mapクラスを生成してmMap配列に追加
             let tempMap: Map = Map(_index: i)
             mMap.append(tempMap)
             //ファイル名を生成してcsvファイル読み込み
             mMap[i].loadCSV(_filename: fileName[i])
         }
-        
         //次に表示するマップデータ読み込み
         mMap[0].setNext(up: 7,right: 0,down: 1,left: 0)
         mMap[1].setNext(up: 0,right: 2,down: 0,left: 0)
@@ -346,6 +346,90 @@ class ViewController: UIViewController {
         mMap[6].setNext(up: 5,right: 0,down: 0,left: 0)
         mMap[7].setNext(up: 8,right: 0,down: 0,left: 0)
         mMap[8].setNext(up: 0,right: 0,down: 7,left: 0)
+        mMap[9].setNext(up: 0,right: 0,down: 0,left: 0)
+        mMap[10].setNext(up: 0,right: 0,down: 0,left: 0)
+    }
+    
+    //鍾乳洞マップ読み込み
+    func loadSyonyudoMap(){
+        //地上フラグOFF
+        fieldFlag = false
+        //一旦配列クリア
+        imageMap.removeAll()
+        //マップ画像差し替え
+        let syonyudo0: UIImage = UIImage(named: "syonyudo0.png")!
+        let syonyudo1: UIImage = UIImage(named: "syonyudo1.png")!
+        let syonyudo2: UIImage = UIImage(named: "syonyudo2.png")!
+        let syonyudo3: UIImage = UIImage(named: "syonyudo3.png")!
+        let syonyudo4: UIImage = UIImage(named: "syonyudo4.png")!
+        let syonyudo5: UIImage = UIImage(named: "syonyudo5.png")!
+        //配列に追加しなおし
+        imageMap.append(syonyudo0)
+        imageMap.append(syonyudo1)
+        imageMap.append(syonyudo2)
+        imageMap.append(syonyudo3)
+        imageMap.append(syonyudo4)
+        imageMap.append(syonyudo5)
+        //マップデータ差し替え
+        for i in 0..<11 {
+            let fileName = "syonyudoMap" + String(i)
+            mMap[i].loadCSV(_filename: fileName)
+        }
+        mMap[0].setNext(up: 0,right: 0,down: 1,left: 0)
+        mMap[1].setNext(up: 0,right: 4,down: 0,left: 2)
+        mMap[2].setNext(up: 0,right: 1,down: 0,left: 3)
+        mMap[3].setNext(up: 0,right: 2,down: 0,left: 0)
+        mMap[4].setNext(up: 0,right: 5,down: 0,left: 1)
+        mMap[5].setNext(up: 0,right: 0,down: 6,left: 4)
+        mMap[6].setNext(up: 5,right: 0,down: 7,left: 0)
+        mMap[7].setNext(up: 6,right: 8,down: 0,left: 0)
+        mMap[8].setNext(up: 0,right: 9,down: 0,left: 7)
+        mMap[9].setNext(up: 0,right: 10,down: 0,left: 8)
+        mMap[10].setNext(up: 0,right: 0,down: 0,left: 9)
+        //現在地を設定して...
+        currentMap = 0
+        //再描画
+        drawMap()
+    }
+    
+    //地上フィールドマップ再読み込み
+    func loadFieldMap(){
+        //地上フラグON
+        fieldFlag = true
+        //一旦配列クリア
+        imageMap.removeAll()
+        //マップ画像差し替え
+        imageMap.append(image0)
+        imageMap.append(image1)
+        imageMap.append(image2)
+        imageMap.append(image3)
+        imageMap.append(image4)
+        imageMap.append(image5)
+        //マップデータ差し替え
+        let fileName: [String] = ["map0","map1","map2","map3","map4","map5","map6","fieldMap7","fieldMap8","map0","map0"]
+        for i in 0..<11 {
+            //Mapクラスを生成してmMap配列に追加
+            let tempMap: Map = Map(_index: i)
+            mMap.append(tempMap)
+            //ファイル名を生成してcsvファイル読み込み
+            mMap[i].loadCSV(_filename: fileName[i])
+        }
+        //次に表示するマップデータ読み込み
+        mMap[0].setNext(up: 7,right: 0,down: 1,left: 0)
+        mMap[1].setNext(up: 0,right: 2,down: 0,left: 0)
+        mMap[2].setNext(up: 0,right: 3,down: 0,left: 1)
+        mMap[3].setNext(up: 0,right: 4,down: 0,left: 2)
+        mMap[4].setNext(up: 0,right: 0,down: 5,left: 3)
+        mMap[5].setNext(up: 4,right: 0,down: 6,left: 0)
+        mMap[6].setNext(up: 5,right: 0,down: 0,left: 0)
+        mMap[7].setNext(up: 8,right: 0,down: 0,left: 0)
+        mMap[8].setNext(up: 0,right: 0,down: 7,left: 0)
+        mMap[9].setNext(up: 0,right: 0,down: 0,left: 0)
+        mMap[10].setNext(up: 0,right: 0,down: 0,left: 0)
+        //現在地を設定して...
+        currentMap = 8
+        //再描画
+        drawMap()
     }
 
     //ViewにImageViewを追加

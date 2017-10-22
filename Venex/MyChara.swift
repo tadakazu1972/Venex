@@ -48,14 +48,28 @@ class MyChara {
         var y2: Int = Int((y+28+vy))/32; if ( y2 < 0){ y2 = 0 }; if ( y2 > 9 ){ y2 = 9 }
         //カベ判定
         let i: Int = viewController.currentMap
-        if ( viewController.mMap[i].data[y1][x1] > 0 || viewController.mMap[i].data[y1][x2] > 0 || viewController.mMap[i].data[y2][x1] > 0 || viewController.mMap[i].data[y2][x2] > 0){
+        //地上の時は0以上が壁だが、鍾乳洞の時は1以上が壁
+        var wall: Int = 0
+        if ( !viewController.fieldFlag ) { wall = 1 }
+        if ( viewController.mMap[i].data[y1][x1] > wall || viewController.mMap[i].data[y1][x2] > wall || viewController.mMap[i].data[y2][x1] > wall || viewController.mMap[i].data[y2][x2] > wall){
             vx = 0.0
             vy = 0.0
             //セリア判定
-            if ( viewController.mMap[i].data[y1][x1] == 3 || viewController.mMap[i].data[y1][x2] == 3 || viewController.mMap[i].data[y2][x1] == 3 || viewController.mMap[i].data[y2][x2] == 3){
-                //ダイアログ呼び出し
-                mDialogSeria1 = DialogSeria1(parentView: viewController)
-                mDialogSeria1.showInfo()
+            if ( viewController.fieldFlag ){
+                if ( viewController.mMap[i].data[y1][x1] == 3 || viewController.mMap[i].data[y1][x2] == 3 || viewController.mMap[i].data[y2][x1] == 3 || viewController.mMap[i].data[y2][x2] == 3){
+                    //ダイアログ呼び出し
+                    mDialogSeria1 = DialogSeria1(parentView: viewController)
+                    mDialogSeria1.showInfo()
+                }
+            }
+            //鍾乳洞入口/出口判定
+            if ( viewController.mMap[i].data[y1][x1] == 5 || viewController.mMap[i].data[y1][x2] == 5 || viewController.mMap[i].data[y2][x1] == 5 || viewController.mMap[i].data[y2][x2] == 5){
+                //地上から鍾乳洞へ
+                if ( viewController.fieldFlag ) {
+                    viewController.loadSyonyudoMap()
+                } else { //鍾乳洞から地上へ
+                    viewController.loadFieldMap()
+                }
             }
         }
         //画面端判定
