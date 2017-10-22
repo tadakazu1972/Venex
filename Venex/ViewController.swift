@@ -16,15 +16,18 @@ class ViewController: UIViewController {
     var statusBarHeight: CGFloat = 20.0
     var scale: CGFloat = 1.0
     var scaledSize: CGFloat = 1.0
-    //Map画像
+    //Map
     let image0: UIImage = UIImage(named: "greenfield.png")!
     let image1: UIImage = UIImage(named: "tree.png")!
     let image2: UIImage = UIImage(named: "brick.png")!
     let image3: UIImage = UIImage(named: "seria.png")!
+    let image4: UIImage = UIImage(named: "field4.png")!
+    let image5: UIImage = UIImage(named: "field5.png")!
     var imageMap: Array<UIImage> = []
     var sMap: Array<UIImageView> = [] //あとでfor文の中で100の配列初期化
     var currentMap: Int = 0 //画面に表示中のマップIndex
-    //MyChara画像
+    var mMap: Array<Map> = []
+    //MyChara
     let arthur01: UIImage = UIImage(named: "arthur01.png")!
     let arthur02: UIImage = UIImage(named: "arthur02.png")!
     let arthur03: UIImage = UIImage(named: "arthur03.png")!
@@ -35,6 +38,7 @@ class ViewController: UIViewController {
     let arthur08: UIImage = UIImage(named: "arthur08.png")!
     var imageMyChara: Array<UIImage> = []
     var sMyChara: UIImageView = UIImageView()
+    var mMyChara: MyChara!
     //アイテム
     let imageItem01: UIImage = UIImage(named: "lily16")!
     var imageItemArray: Array<UIImage> = []
@@ -48,8 +52,6 @@ class ViewController: UIViewController {
     let btnItem  = UIButton(frame: CGRect.zero)
     var longPressFlag: Bool = false //ロングプレス判定用
     //クラス
-    var mMyChara: MyChara!
-    var mMap: Array<Map> = []
     var mDBHelper: DBHelper!
     var mDialogItem: DialogItem!
     //タイマー
@@ -67,7 +69,7 @@ class ViewController: UIViewController {
         //初回起動判定
         if userDefaults.bool(forKey:"firstLaunch"){
             //アイテム初期化
-            mDBHelper.insert("薬草", num:10)
+            mDBHelper.insert("ユリ", num:10)
             mDBHelper.insert("鉄鉱石", num:3)
             mDBHelper.insert("木ノ実", num:20)
             
@@ -310,6 +312,8 @@ class ViewController: UIViewController {
         imageMap.append(image1)
         imageMap.append(image2)
         imageMap.append(image3)
+        imageMap.append(image4)
+        imageMap.append(image5)
         //MyChara
         imageMyChara.append(arthur07)
         imageMyChara.append(arthur08)
@@ -323,22 +327,25 @@ class ViewController: UIViewController {
     
     //マップデータ初期化、読み込み
     func initMap(){
-        for i in 0..<7 {
+        let fileName: [String] = ["map0","map1","map2","map3","map4","map5","map6","fieldMap7","fieldMap8"]
+        for i in 0..<9 {
             //Mapクラスを生成してmMap配列に追加
             let tempMap: Map = Map(_index: i)
             mMap.append(tempMap)
             //ファイル名を生成してcsvファイル読み込み
-            let filename: String = "map" + String(i)
-            mMap[i].loadCSV(_filename: filename)
+            mMap[i].loadCSV(_filename: fileName[i])
         }
+        
         //次に表示するマップデータ読み込み
-        mMap[0].setNext(up: 0,right: 0,down: 1,left: 0)
+        mMap[0].setNext(up: 7,right: 0,down: 1,left: 0)
         mMap[1].setNext(up: 0,right: 2,down: 0,left: 0)
         mMap[2].setNext(up: 0,right: 3,down: 0,left: 1)
         mMap[3].setNext(up: 0,right: 4,down: 0,left: 2)
         mMap[4].setNext(up: 0,right: 0,down: 5,left: 3)
         mMap[5].setNext(up: 4,right: 0,down: 6,left: 0)
         mMap[6].setNext(up: 5,right: 0,down: 0,left: 0)
+        mMap[7].setNext(up: 8,right: 0,down: 0,left: 0)
+        mMap[8].setNext(up: 0,right: 0,down: 7,left: 0)
     }
 
     //ViewにImageViewを追加

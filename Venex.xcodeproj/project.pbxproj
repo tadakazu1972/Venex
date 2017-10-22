@@ -10,6 +10,10 @@
 		5913E3771F76B61F00CBA89D /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5913E3761F76B61F00CBA89D /* Item.swift */; };
 		5913E37B1F8E560000CBA89D /* DialogSeria1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5913E37A1F8E560000CBA89D /* DialogSeria1.swift */; };
 		595CA0DC1F91BBFE002675B2 /* DialogSeriaTrade.swift in Sources */ = {isa = PBXBuildFile; fileRef = 595CA0DB1F91BBFE002675B2 /* DialogSeriaTrade.swift */; };
+		59C2CBBA1F9C402700066A29 /* field4.png in Resources */ = {isa = PBXBuildFile; fileRef = 59C2CBB91F9C402700066A29 /* field4.png */; };
+		59C2CBBC1F9C403700066A29 /* field5.png in Resources */ = {isa = PBXBuildFile; fileRef = 59C2CBBB1F9C403700066A29 /* field5.png */; };
+		59C2CBBE1F9C40A300066A29 /* fieldMap7.csv in Resources */ = {isa = PBXBuildFile; fileRef = 59C2CBBD1F9C40A300066A29 /* fieldMap7.csv */; };
+		59C2CBC01F9C40B000066A29 /* fieldMap8.csv in Resources */ = {isa = PBXBuildFile; fileRef = 59C2CBBF1F9C40B000066A29 /* fieldMap8.csv */; };
 		59CD22931F6E096600F9CF65 /* map2.csv in Resources */ = {isa = PBXBuildFile; fileRef = 59CD228E1F6E096600F9CF65 /* map2.csv */; };
 		59CD22941F6E096600F9CF65 /* map3.csv in Resources */ = {isa = PBXBuildFile; fileRef = 59CD228F1F6E096600F9CF65 /* map3.csv */; };
 		59CD22951F6E096600F9CF65 /* map4.csv in Resources */ = {isa = PBXBuildFile; fileRef = 59CD22901F6E096600F9CF65 /* map4.csv */; };
@@ -60,6 +64,10 @@
 		5913E3761F76B61F00CBA89D /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		5913E37A1F8E560000CBA89D /* DialogSeria1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogSeria1.swift; sourceTree = "<group>"; };
 		595CA0DB1F91BBFE002675B2 /* DialogSeriaTrade.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogSeriaTrade.swift; sourceTree = "<group>"; };
+		59C2CBB91F9C402700066A29 /* field4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = field4.png; sourceTree = "<group>"; };
+		59C2CBBB1F9C403700066A29 /* field5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = field5.png; sourceTree = "<group>"; };
+		59C2CBBD1F9C40A300066A29 /* fieldMap7.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = fieldMap7.csv; sourceTree = "<group>"; };
+		59C2CBBF1F9C40B000066A29 /* fieldMap8.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = fieldMap8.csv; sourceTree = "<group>"; };
 		59CD228E1F6E096600F9CF65 /* map2.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = map2.csv; sourceTree = "<group>"; };
 		59CD228F1F6E096600F9CF65 /* map3.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = map3.csv; sourceTree = "<group>"; };
 		59CD22901F6E096600F9CF65 /* map4.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = map4.csv; sourceTree = "<group>"; };
@@ -137,6 +145,8 @@
 				59CD22901F6E096600F9CF65 /* map4.csv */,
 				59CD22911F6E096600F9CF65 /* map5.csv */,
 				59CD22921F6E096600F9CF65 /* map6.csv */,
+				59C2CBBD1F9C40A300066A29 /* fieldMap7.csv */,
+				59C2CBBF1F9C40B000066A29 /* fieldMap8.csv */,
 				59E594D31F971A7000652276 /* test.csv */,
 				59E594D71F9723B300652276 /* talkSeria.csv */,
 			);
@@ -234,6 +244,8 @@
 				59D5247A1F59323800B5756A /* key_right.png */,
 				59D524761F58EEF600B5756A /* greenfield.png */,
 				59D524731F585ACC00B5756A /* tree.png */,
+				59C2CBB91F9C402700066A29 /* field4.png */,
+				59C2CBBB1F9C403700066A29 /* field5.png */,
 			);
 			name = png;
 			sourceTree = "<group>";
@@ -299,6 +311,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				59C2CBC01F9C40B000066A29 /* fieldMap8.csv in Resources */,
+				59C2CBBE1F9C40A300066A29 /* fieldMap7.csv in Resources */,
 				59E594D81F9723C600652276 /* talkSeria.csv in Resources */,
 				59E594D41F971A7900652276 /* test.csv in Resources */,
 				59D5246C1F58599B00B5756A /* LaunchScreen.storyboard in Resources */,
@@ -312,10 +326,12 @@
 				59CD22991F6E162400F9CF65 /* map0.csv in Resources */,
 				59D524891F5A49AC00B5756A /* arthur02.png in Resources */,
 				59CD22941F6E096600F9CF65 /* map3.csv in Resources */,
+				59C2CBBC1F9C403700066A29 /* field5.png in Resources */,
 				59D524971F5AE67E00B5756A /* key_up.png in Resources */,
 				59CD22C01F6FF3F200F9CF65 /* ic_check_box.png in Resources */,
 				59D5248D1F5A49AC00B5756A /* arthur06.png in Resources */,
 				59D5248B1F5A49AC00B5756A /* arthur04.png in Resources */,
+				59C2CBBA1F9C402700066A29 /* field4.png in Resources */,
 				59CD22BE1F6FF3E300F9CF65 /* ic_check_box_outline_blank.png in Resources */,
 				59D524771F58EEF600B5756A /* greenfield.png in Resources */,
 				59D5248A1F5A49AC00B5756A /* arthur03.png in Resources */,
