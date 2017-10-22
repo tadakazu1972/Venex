@@ -28,6 +28,7 @@ class ViewController: UIViewController {
     var currentMap: Int = 0 //画面に表示中のマップIndex
     var mMap: Array<Map> = []
     var fieldFlag: Bool = true //セリアがマップid="3"であり、衝突判定で地上にいるか判定フラグ
+    var exitFlag: Bool = true //鍾乳洞の入口/出口の当たり判定でぶつかった際に切り替えるべきか判定フラグ
     //MyChara
     let arthur01: UIImage = UIImage(named: "arthur01.png")!
     let arthur02: UIImage = UIImage(named: "arthur02.png")!
@@ -352,6 +353,8 @@ class ViewController: UIViewController {
     
     //鍾乳洞マップ読み込み
     func loadSyonyudoMap(){
+        //アイテム消去（今の所は）
+        clearItem()
         //地上フラグOFF
         fieldFlag = false
         //一旦配列クリア
@@ -394,6 +397,8 @@ class ViewController: UIViewController {
     
     //地上フィールドマップ再読み込み
     func loadFieldMap(){
+        //アイテム再出現
+        setItem()
         //地上フラグON
         fieldFlag = true
         //一旦配列クリア
@@ -510,6 +515,12 @@ class ViewController: UIViewController {
             } else {
                 sItem[i].isHidden = true
             }
+        }
+    }
+    
+    func clearItem(){
+        for i in 0..<20 {
+            mItem[i].visible = false
         }
     }
     

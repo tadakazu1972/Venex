@@ -63,12 +63,21 @@ class MyChara {
                 }
             }
             //鍾乳洞入口/出口判定
-            if ( viewController.mMap[i].data[y1][x1] == 5 || viewController.mMap[i].data[y1][x2] == 5 || viewController.mMap[i].data[y2][x1] == 5 || viewController.mMap[i].data[y2][x2] == 5){
-                //地上から鍾乳洞へ
-                if ( viewController.fieldFlag ) {
-                    viewController.loadSyonyudoMap()
-                } else { //鍾乳洞から地上へ
-                    viewController.loadFieldMap()
+            if ( viewController.exitFlag ){
+                if ( viewController.mMap[i].data[y1][x1] == 5 || viewController.mMap[i].data[y1][x2] == 5 || viewController.mMap[i].data[y2][x1] == 5 || viewController.mMap[i].data[y2][x2] == 5){
+                    //フラグOFF
+                    viewController.exitFlag = false
+                    //地上から鍾乳洞へ
+                    if ( viewController.fieldFlag ) {
+                        viewController.loadSyonyudoMap()
+                    } else { //鍾乳洞から地上へ
+                        viewController.loadFieldMap()
+                    }
+                }
+            } else {
+                if ( viewController.mMap[i].data[y1][x1] < 5 || viewController.mMap[i].data[y1][x2] < 5 || viewController.mMap[i].data[y2][x1] < 5 || viewController.mMap[i].data[y2][x2] < 5){
+                    //階段から離れたらフラグON
+                    viewController.exitFlag = true
                 }
             }
         }
@@ -77,28 +86,28 @@ class MyChara {
             //左にあるマップのデータに切り替え
             viewController.currentMap = viewController.mMap[viewController.currentMap].next[3]
             viewController.drawMap()
-            viewController.setItem()
+            if ( viewController.fieldFlag ){ viewController.setItem() }
             x = 288.0
         }
         if ( x > 296.0 ){
             //右にあるマップのデータに切り替え
             viewController.currentMap = viewController.mMap[viewController.currentMap].next[1]
             viewController.drawMap()
-            viewController.setItem()
+            if ( viewController.fieldFlag ){ viewController.setItem() }
             x = 0.0
         }
         if ( y < -8.0 ){
             //上にあるマップのデータに切り替え
             viewController.currentMap = viewController.mMap[viewController.currentMap].next[0]
             viewController.drawMap()
-            viewController.setItem()
+            if ( viewController.fieldFlag ){ viewController.setItem() }
             y = 288.0
         }
         if ( y > 296.0 ){
             //下にあるマップのデータに切り替え
             viewController.currentMap = viewController.mMap[viewController.currentMap].next[2]
             viewController.drawMap()
-            viewController.setItem()
+            if ( viewController.fieldFlag ){ viewController.setItem() }
             y = 0.0
         }
         //座標更新
