@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		5913E3771F76B61F00CBA89D /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5913E3761F76B61F00CBA89D /* Item.swift */; };
 		5913E37B1F8E560000CBA89D /* DialogSeria1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5913E37A1F8E560000CBA89D /* DialogSeria1.swift */; };
+		5934EED81FAE9F8900466880 /* DialogBattle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5934EED71FAE9F8900466880 /* DialogBattle.swift */; };
+		5934EEDA1FAEAD0C00466880 /* skelton01.png in Resources */ = {isa = PBXBuildFile; fileRef = 5934EED91FAEAD0C00466880 /* skelton01.png */; };
+		5934EEDE1FAED1FA00466880 /* skelton.png in Resources */ = {isa = PBXBuildFile; fileRef = 5934EEDD1FAED1FA00466880 /* skelton.png */; };
+		5934EEE01FAED78700466880 /* ghouldragon.png in Resources */ = {isa = PBXBuildFile; fileRef = 5934EEDF1FAED78700466880 /* ghouldragon.png */; };
 		595CA0DC1F91BBFE002675B2 /* DialogSeriaTrade.swift in Sources */ = {isa = PBXBuildFile; fileRef = 595CA0DB1F91BBFE002675B2 /* DialogSeriaTrade.swift */; };
 		59C2CBBA1F9C402700066A29 /* field4.png in Resources */ = {isa = PBXBuildFile; fileRef = 59C2CBB91F9C402700066A29 /* field4.png */; };
 		59C2CBBC1F9C403700066A29 /* field5.png in Resources */ = {isa = PBXBuildFile; fileRef = 59C2CBBB1F9C403700066A29 /* field5.png */; };
@@ -80,6 +84,10 @@
 /* Begin PBXFileReference section */
 		5913E3761F76B61F00CBA89D /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		5913E37A1F8E560000CBA89D /* DialogSeria1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogSeria1.swift; sourceTree = "<group>"; };
+		5934EED71FAE9F8900466880 /* DialogBattle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogBattle.swift; sourceTree = "<group>"; };
+		5934EED91FAEAD0C00466880 /* skelton01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = skelton01.png; sourceTree = "<group>"; };
+		5934EEDD1FAED1FA00466880 /* skelton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = skelton.png; sourceTree = "<group>"; };
+		5934EEDF1FAED78700466880 /* ghouldragon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ghouldragon.png; sourceTree = "<group>"; };
 		595CA0DB1F91BBFE002675B2 /* DialogSeriaTrade.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogSeriaTrade.swift; sourceTree = "<group>"; };
 		59C2CBB91F9C402700066A29 /* field4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = field4.png; sourceTree = "<group>"; };
 		59C2CBBB1F9C403700066A29 /* field5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = field5.png; sourceTree = "<group>"; };
@@ -259,6 +267,7 @@
 				5913E37A1F8E560000CBA89D /* DialogSeria1.swift */,
 				595CA0DB1F91BBFE002675B2 /* DialogSeriaTrade.swift */,
 				59E594CE1F97127500652276 /* DialogSeriaTalk.swift */,
+				5934EED71FAE9F8900466880 /* DialogBattle.swift */,
 				59D524901F5A4FF800B5756A /* MyChara.swift */,
 				59D524981F5AEE8000B5756A /* Map.swift */,
 				5913E3761F76B61F00CBA89D /* Item.swift */,
@@ -273,6 +282,9 @@
 		59D524751F585E1200B5756A /* png */ = {
 			isa = PBXGroup;
 			children = (
+				5934EEDF1FAED78700466880 /* ghouldragon.png */,
+				5934EEDD1FAED1FA00466880 /* skelton.png */,
+				5934EED91FAEAD0C00466880 /* skelton01.png */,
 				59CD22BF1F6FF3F200F9CF65 /* ic_check_box.png */,
 				59CD22BD1F6FF3E300F9CF65 /* ic_check_box_outline_blank.png */,
 				59D524961F5AE67E00B5756A /* key_up.png */,
@@ -367,6 +379,7 @@
 				59E594D81F9723C600652276 /* talkSeria.csv in Resources */,
 				59C2CBD51F9C5ECC00066A29 /* syonyudoMap9.csv in Resources */,
 				59E594D41F971A7900652276 /* test.csv in Resources */,
+				5934EEDA1FAEAD0C00466880 /* skelton01.png in Resources */,
 				59D5246C1F58599B00B5756A /* LaunchScreen.storyboard in Resources */,
 				59D524691F58599B00B5756A /* Assets.xcassets in Resources */,
 				59D5247D1F59323800B5756A /* key_left.png in Resources */,
@@ -375,6 +388,7 @@
 				59C2CBD21F9C5ECC00066A29 /* syonyudoMap7.csv in Resources */,
 				59C2CBD41F9C5ECC00066A29 /* syonyudoMap0.csv in Resources */,
 				59D524741F585ACC00B5756A /* tree.png in Resources */,
+				5934EEDE1FAED1FA00466880 /* skelton.png in Resources */,
 				59CD22961F6E096600F9CF65 /* map5.csv in Resources */,
 				59C2CBE01F9C8C1400066A29 /* syonyudo4.png in Resources */,
 				59CD22971F6E096600F9CF65 /* map6.csv in Resources */,
@@ -398,6 +412,7 @@
 				59D5248A1F5A49AC00B5756A /* arthur03.png in Resources */,
 				59CD22931F6E096600F9CF65 /* map2.csv in Resources */,
 				59C2CBD11F9C5ECC00066A29 /* syonyudoMap3.csv in Resources */,
+				5934EEE01FAED78700466880 /* ghouldragon.png in Resources */,
 				59CD229B1F6E427100F9CF65 /* map1.csv in Resources */,
 				59D5248F1F5A49AC00B5756A /* arthur08.png in Resources */,
 				59D5248E1F5A49AC00B5756A /* arthur07.png in Resources */,
@@ -439,6 +454,7 @@
 				59CD22B11F6EB23400F9CF65 /* DBHelper.swift in Sources */,
 				59D524621F58599B00B5756A /* AppDelegate.swift in Sources */,
 				59CD22AA1F6EAA0800F9CF65 /* FMDatabaseAdditions.m in Sources */,
+				5934EED81FAE9F8900466880 /* DialogBattle.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

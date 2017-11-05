@@ -18,6 +18,7 @@ class MyChara {
     var viewController: ViewController! //ViewControllerのメンバー変数であるcurrentMapにアクセスするため保存
     //利用クラス
     var mDialogSeria1: DialogSeria1!
+    var mDialogBattle: DialogBattle!
     
     //コンストラクタ
     init(parent: ViewController){
@@ -79,6 +80,13 @@ class MyChara {
                     //階段から離れたらフラグON
                     viewController.exitFlag = true
                 }
+            }
+            
+            //モンスター判定
+            if ( viewController.mMap[i].data[y1][x1] == 6 || viewController.mMap[i].data[y1][x2] == 6 || viewController.mMap[i].data[y2][x1] == 6 || viewController.mMap[i].data[y2][x2] == 6){
+                //ダイアログ呼び出し
+                mDialogBattle = DialogBattle(parentView: viewController)
+                mDialogBattle.showInfo()
             }
         }
         //画面端判定
