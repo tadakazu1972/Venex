@@ -15,6 +15,10 @@ class DialogBattle: NSObject {
     var text1: UITextView!
     var btnClose: UIButton!
     var btnNext: UIButton!
+    //攻撃ボタン
+    var btnSingleAttack: UIButton!
+    var btnMultiAttack: UIButton!
+    var btnItem: UIButton!
     //モンスター画像とテキスト(名前、HP)
     var imageMonster1: UIImageView!
     var imageMonster2: UIImageView!
@@ -52,6 +56,10 @@ class DialogBattle: NSObject {
         text1 = UITextView()
         btnClose = UIButton()
         btnNext  = UIButton()
+        //攻撃ボタン
+        btnSingleAttack = UIButton()
+        btnMultiAttack = UIButton()
+        btnItem = UIButton()
         text1.text = "【戦闘】"
         data = [[String]](repeating: [String](repeating:"a", count:1), count:indexMax+1)
         //データ読み込み
@@ -127,6 +135,40 @@ class DialogBattle: NSObject {
         btnNext.addTarget(self, action: #selector(self.onClickNext(_:)), for: .touchUpInside)
         self.win1.addSubview(btnNext)
         
+        //攻撃ボタン
+        //１体攻撃
+        btnSingleAttack.frame = CGRect(x: 0, y: 0, width:240, height: 40)
+        btnSingleAttack.backgroundColor = UIColor.blue
+        btnSingleAttack.setTitle("１体攻撃 > 攻撃力100%", for: UIControlState())
+        btnSingleAttack.setTitleColor(UIColor.white, for: UIControlState())
+        btnSingleAttack.layer.masksToBounds = true
+        btnSingleAttack.layer.cornerRadius = 10.0
+        btnSingleAttack.layer.position = CGPoint(x: self.win1.frame.width/2, y: self.win1.frame.height-128)
+        btnSingleAttack.addTarget(self, action: #selector(self.onClickSingleAttack(_:)), for: .touchUpInside)
+        self.win1.addSubview(btnSingleAttack)
+        
+        //複数攻撃
+        btnMultiAttack.frame = CGRect(x: 0, y: 0, width:240, height: 40)
+        btnMultiAttack.backgroundColor = UIColor.blue
+        btnMultiAttack.setTitle("複数攻撃 > 攻撃力 50%", for: UIControlState())
+        btnMultiAttack.setTitleColor(UIColor.white, for: UIControlState())
+        btnMultiAttack.layer.masksToBounds = true
+        btnMultiAttack.layer.cornerRadius = 10.0
+        btnMultiAttack.layer.position = CGPoint(x: self.win1.frame.width/2, y: self.win1.frame.height-80)
+        btnMultiAttack.addTarget(self, action: #selector(self.onClickMultiAttack(_:)), for: .touchUpInside)
+        self.win1.addSubview(btnMultiAttack)
+        
+        //アイテム
+        btnItem.frame = CGRect(x: 0, y: 0, width:240, height: 40)
+        btnItem.backgroundColor = UIColor.blue
+        btnItem.setTitle("アイテム使用", for: UIControlState())
+        btnItem.setTitleColor(UIColor.white, for: UIControlState())
+        btnItem.layer.masksToBounds = true
+        btnItem.layer.cornerRadius = 10.0
+        btnItem.layer.position = CGPoint(x: self.win1.frame.width/2, y: self.win1.frame.height-32)
+        btnItem.addTarget(self, action: #selector(self.onClickItem(_:)), for: .touchUpInside)
+        self.win1.addSubview(btnItem)
+        
         //モンスター画像ImageView生成
         // Monster1
         imageMonster1.image = imageSkelton
@@ -181,6 +223,25 @@ class DialogBattle: NSObject {
         imageMonster6.isUserInteractionEnabled = true
         imageMonster6.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.onTapMonster3(_:))))
         self.win1.addSubview(imageMonster6)
+    }
+    
+    //攻撃ボタンタップ
+    //１体攻撃
+    @objc func onClickSingleAttack(_ sender: UIButton){
+        btnSingleAttack.isHidden = true
+    }
+    
+    //複数攻撃
+    @objc func onClickMultiAttack(_ sender: UIButton){
+        btnMultiAttack.isHidden = true
+    }
+    
+    //アイテム使用
+    @objc func onClickItem(_ sender:UIButton){
+        btnItem.isHidden = true
+        parent.mDBHelper.selectAll2()
+        parent.mDialogItem = DialogItem(parentView: parent, resultFrom: parent.mDBHelper.resultArray)
+        parent.mDialogItem.showItems()
     }
     
     @objc func onTapMonster1(_ sender: UITapGestureRecognizer){
