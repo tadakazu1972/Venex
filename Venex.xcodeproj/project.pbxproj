@@ -47,7 +47,6 @@
 		59CD22AB1F6EAA0800F9CF65 /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = 59CD22A21F6EAA0800F9CF65 /* FMDatabasePool.m */; };
 		59CD22AC1F6EAA0800F9CF65 /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 59CD22A41F6EAA0800F9CF65 /* FMDatabaseQueue.m */; };
 		59CD22AD1F6EAA0800F9CF65 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 59CD22A71F6EAA0800F9CF65 /* FMResultSet.m */; };
-		59CD22AE1F6EAA0800F9CF65 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 59CD22A81F6EAA0800F9CF65 /* Info.plist */; };
 		59CD22B11F6EB23400F9CF65 /* DBHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59CD22B01F6EB23400F9CF65 /* DBHelper.swift */; };
 		59CD22B31F6F693400F9CF65 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59CD22B21F6F693400F9CF65 /* StringExtensions.swift */; };
 		59CD22B61F6FB4B400F9CF65 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 59CD22B51F6FB4B400F9CF65 /* libsqlite3.tbd */; };
@@ -356,6 +355,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -422,7 +422,6 @@
 				59CD22951F6E096600F9CF65 /* map4.csv in Resources */,
 				59C2CBDE1F9C8C1400066A29 /* syonyudo0.png in Resources */,
 				59D524881F5A49AC00B5756A /* arthur01.png in Resources */,
-				59CD22AE1F6EAA0800F9CF65 /* Info.plist in Resources */,
 				59C2CBE11F9C8C1400066A29 /* syonyudo2.png in Resources */,
 				59D5247C1F59323800B5756A /* key_down.png in Resources */,
 				59C2CBCC1F9C5ECC00066A29 /* syonyudoMap1.csv in Resources */,
