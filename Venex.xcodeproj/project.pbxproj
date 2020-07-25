@@ -78,6 +78,7 @@
 		59E594CF1F97127500652276 /* DialogSeriaTalk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59E594CE1F97127500652276 /* DialogSeriaTalk.swift */; };
 		59E594D41F971A7900652276 /* test.csv in Resources */ = {isa = PBXBuildFile; fileRef = 59E594D31F971A7000652276 /* test.csv */; };
 		59E594D81F9723C600652276 /* talkSeria.csv in Resources */ = {isa = PBXBuildFile; fileRef = 59E594D71F9723B300652276 /* talkSeria.csv */; };
+		59F716D424CC57D3003B5B44 /* StatusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59F716D324CC57D3003B5B44 /* StatusViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -162,6 +163,7 @@
 		59E594CE1F97127500652276 /* DialogSeriaTalk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogSeriaTalk.swift; sourceTree = "<group>"; };
 		59E594D31F971A7000652276 /* test.csv */ = {isa = PBXFileReference; lastKnownFileType = text; path = test.csv; sourceTree = "<group>"; };
 		59E594D71F9723B300652276 /* talkSeria.csv */ = {isa = PBXFileReference; lastKnownFileType = text; path = talkSeria.csv; sourceTree = "<group>"; };
+		59F716D324CC57D3003B5B44 /* StatusViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -260,6 +262,7 @@
 				59CD22AF1F6EACCC00F9CF65 /* Bridging-Header.h */,
 				59CD22B21F6F693400F9CF65 /* StringExtensions.swift */,
 				59D524631F58599B00B5756A /* ViewController.swift */,
+				59F716D324CC57D3003B5B44 /* StatusViewController.swift */,
 				59CD22B01F6EB23400F9CF65 /* DBHelper.swift */,
 				59CD22BB1F6FF30D00F9CF65 /* CheckboxItemCell.swift */,
 				59CD22B71F6FE61100F9CF65 /* DialogItem.swift */,
@@ -437,6 +440,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				59D524641F58599B00B5756A /* ViewController.swift in Sources */,
+				59F716D424CC57D3003B5B44 /* StatusViewController.swift in Sources */,
 				59CD22AC1F6EAA0800F9CF65 /* FMDatabaseQueue.m in Sources */,
 				5913E37B1F8E560000CBA89D /* DialogSeria1.swift in Sources */,
 				59CD22BC1F6FF30D00F9CF65 /* CheckboxItemCell.swift in Sources */,

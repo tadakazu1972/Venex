@@ -53,6 +53,7 @@ class ViewController: UIViewController {
     let btnDown  = UIButton(frame: CGRect.zero)
     let btnLeft  = UIButton(frame: CGRect.zero)
     let btnItem  = UIButton(frame: CGRect.zero)
+    let btnStatus = UIButton(frame: CGRect.zero)
     var longPressFlag: Bool = false //ロングプレス判定用
     //クラス
     var mDBHelper: DBHelper!
@@ -61,6 +62,14 @@ class ViewController: UIViewController {
     var timer: Timer!
     //UserDefaults
     let userDefaults = UserDefaults.standard
+    
+    //子ViewController設定
+    private lazy var mStatusViewController: StatusViewController = {
+        var viewController = StatusViewController()
+        add(asChildViewController: viewController)
+        return viewController
+    }()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -111,7 +120,7 @@ class ViewController: UIViewController {
         super.viewWillDisappear(true)
         timer.invalidate()
     }
-    
+            
     //制約ひな型
     func Constraint(_ item: AnyObject, _ attr: NSLayoutAttribute, to: AnyObject?, _ attrTo: NSLayoutAttribute, constant: CGFloat = 0.0, multiplier: CGFloat = 1.0, relate: NSLayoutRelation = .equal, priority: UILayoutPriority = UILayoutPriority.required) -> NSLayoutConstraint {
         let ret = NSLayoutConstraint(
@@ -162,6 +171,13 @@ class ViewController: UIViewController {
             Constraint(btnItem, .trailing, to:self.view, .trailing, constant:-16),
             Constraint(btnItem, .width, to:self.view, .width, constant:0, multiplier:0.3),
             Constraint(btnItem, .height, to:self.view, .height, constant:0, multiplier:0.08)
+        ])
+        //Statusボタン
+        self.view.addConstraints([
+            Constraint(btnStatus, .top, to:btnItem, .bottom, constant:8),
+            Constraint(btnStatus, .trailing, to:self.view, .trailing, constant:-16),
+            Constraint(btnStatus, .width, to:self.view, .width, constant:0, multiplier:0.3),
+            Constraint(btnStatus, .height, to:self.view, .height, constant:0, multiplier:0.08)
         ])
     }
     
@@ -234,6 +250,17 @@ class ViewController: UIViewController {
         btnItem.addTarget(self, action: #selector(self.touchBtnItem(_:)), for: .touchUpInside)
         btnItem.translatesAutoresizingMaskIntoConstraints = false
         self.view.addSubview(btnItem)
+        
+        //Status
+        btnStatus.backgroundColor = UIColor(red:0.85, green:0.85, blue:0.85, alpha:1.0)
+        btnStatus.layer.masksToBounds = true
+        btnStatus.setTitle("ステータス", for: UIControlState())
+        btnStatus.setTitleColor(UIColor.black, for: UIControlState())
+        btnStatus.setTitleColor(UIColor.red, for: UIControlState.highlighted)
+        btnStatus.layer.cornerRadius = 8.0
+        btnStatus.addTarget(self, action: #selector(self.onClickbtnStatus(_:)), for: .touchUpInside)
+        btnStatus.translatesAutoresizingMaskIntoConstraints = false
+        self.view.addSubview(btnStatus)
     }
     
     //ロングプレス
@@ -275,10 +302,37 @@ class ViewController: UIViewController {
         mMyChara.left(speed: 3.0)
     }
     
+    //Itemボタン推された
     @objc func touchBtnItem(_ sender: UIButton){
         mDBHelper.selectAll2()
         mDialogItem = DialogItem(parentView: self, resultFrom: mDBHelper.resultArray)
         mDialogItem.showItems()
+    }
+    
+    //Statusボタン推された
+    @objc func onClickbtnStatus(_ sender: UIButton){
+        print("Statusボタン押された")
+        add(asChildViewController: mStatusViewController)
+    }
+    
+    //子ViewController 追加、削除
+    private func add(asChildViewController viewController: UIViewController){
+        addChildViewController(viewController)
+        self.view.addSubview(viewController.view)
+        //viewController.view.frame = self.view.bounds
+        viewController.view.frame = CGRect(x: 0, y: 0, width: self.view.bounds.size.width, height: self.view.bounds.height)
+        viewController.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        //子ViewControllerへ通知
+        viewController.didMove(toParentViewController: self)
+    }
+    
+    private func remove(asChildViewController viewController: UIViewController){
+        //子ViewControllerへ通知
+        viewController.willMove(toParentViewController: nil)
+        //子ViewをSuperviewから削除
+        viewController.view.removeFromSuperview()
+        //子ViewControllerへ通知
+        viewController.removeFromParentViewController()
     }
     
     //*******************************************************************************************************************************
